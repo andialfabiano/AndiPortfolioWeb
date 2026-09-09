@@ -50,6 +50,20 @@ body {
   font-size: 13px;
   letter-spacing: 0.05em;
   transition: opacity 0.2s ease;
+  
+  color: #111111 !important;     
+  -webkit-appearance: none;        
+  appearance: none;
+  text-decoration: none;           
+  padding: 0;
+  font-family: inherit;
+}
+
+
+.nav-btn:visited,
+.nav-btn:active,
+.nav-btn:focus {
+  color: #111111 !important;
 }
 
 .nav-btn:hover {
