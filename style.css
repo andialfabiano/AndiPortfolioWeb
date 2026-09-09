@@ -284,7 +284,7 @@ drawer-nav-link {
 
 .drawer-nav-link:hover .nav-arrow {
   color: #111111;
-  transform: translate(2px, 2px);
+  transform: translate(3px, 0px);
 }
 
 .drawer-section-title {
