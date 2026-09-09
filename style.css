@@ -110,12 +110,12 @@ a.nav-btn,
   appearance: none;
 }
 
-/* 3-Column Grid Layout Desktop */
-/* Grid Galeri Utama (Default Desktop: 3 Kolom) */
+/* ================================================= */
+/* 3-COLUMN GRID LAYOUT (DESKTOP DEFAULT)            */
+/* ================================================= */
 .gallery-grid {
-  --grid-cols: 3;
-  display: grid;
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   column-gap: 32px;
   row-gap: 56px;
   margin-bottom: 80px;
@@ -676,12 +676,13 @@ a.nav-btn,
 }
 
 /* ================================================= */
-/* MEDIA QUERIES (RESPONSIF)                         */
+/* MEDIA QUERIES (RESPONSIF TERBUKTI)                */
 /* ================================================= */
 
-@media (max-width: 900px) {
+/* Tablet (Layar <= 900px): Menjadi 2 Kolom */
+@media screen and (max-width: 900px) {
   .gallery-grid {
-    --grid-cols: 2;
+    grid-template-columns: repeat(2, 1fr) !important;
     column-gap: 20px;
     row-gap: 40px;
   }
@@ -695,14 +696,14 @@ a.nav-btn,
   }
 }
 
-/* Handphone (Layar di bawah 600px): Jadi 1 Kolom */
-@media (max-width: 600px) {
+/* Handphone (Layar <= 600px): Menjadi 1 Kolom Rapi */
+@media screen and (max-width: 600px) {
   .portfolio-wrapper {
     padding: 0 20px;
   }
 
   .gallery-grid {
-    --grid-cols: 1;
+    grid-template-columns: 1fr !important;
     column-gap: 0;
     row-gap: 36px;
   }
