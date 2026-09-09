@@ -249,6 +249,7 @@ a.nav-btn,
   width: 440px;
   max-width: 88vw;
   height: 100vh;
+  height: 100dvh;              /* Menghindari bug height di browser mobile */
   background-color: #F8F7F3;
   z-index: 1001;
   transform: translateX(-100%);
@@ -269,6 +270,7 @@ a.nav-btn,
   justify-content: space-between;
   padding: 28px 32px;
   border-bottom: 1px solid #e7e3da;
+  flex-shrink: 0;              /* Kunci header agar tidak mengecil saat discroll */
 }
 
 .drawer-brand {
@@ -294,11 +296,19 @@ a.nav-btn,
 }
 
 .drawer-content {
-  padding: 32px;
-  padding-bottom: 120px; 
-  overflow-y: scroll; 
-  -webkit-overflow-scrolling: touch; 
+  padding: 32px 32px 0 32px;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
   flex: 1;
+  height: 100%;
+}
+
+.drawer-content::after {
+  content: "";
+  display: block;
+  height: 180px;               /* Memberi ruang kosong 180px di bawah link terakhir */
+  width: 100%;
+  pointer-events: none;
 }
 
 .drawer-nav-list {
