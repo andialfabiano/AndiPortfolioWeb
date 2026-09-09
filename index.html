@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Andi Davalah</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="portfolio-wrapper">
+    <header class="portfolio-header">
+      <div class="header-left">
+        <button class="nav-btn" onclick="openMenu()">MENU</button>
+        <span class="divider">/</span>
+        <span class="current-page">ANDI DAVALAH'S PORTFOLIO</span>
+      </div>
+      
+      <div class="brand-logo"></div> 
+      <div class="header-right"></div>
+
+    </header>
+
+    <main class="gallery-grid" id="portfolio-grid"></main>
+
+    <footer class="portfolio-footer">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-bio-title">ANDI ALFABIANO DAVALAH</div>
+          <p class="footer-bio-desc">
+            Filmmaker, Content Creator, skilled in Creative Production, Content Writing, Marketing, and Research. Proficient in using various digital tools and platforms to develop, manage, and analyze content strategies. Open for directorial collaborations, and any production projects.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-header">Get In Touch</div>
+          <ul class="footer-link-list">
+            <li><a href="mailto:andidavalah@gmail.com">andidavalah@gmail.com ↗</a></li>
+            <li><a href="https://wa.me/6285173470104" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-header">Online Presence</div>
+          <ul class="footer-link-list">
+            <li><a href="https://www.linkedin.com/in/andialfabiano" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+            <li><a href="https://www.instagram.com/andialfabiano" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+            <li><a href="https://letterboxd.com/Davalah" target="_blank" rel="noopener noreferrer">Letterboxd ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Andi Davalah. All rights reserved.</div>
+        <div>Based in Bandung, West Java, Indonesia</div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="drawer-overlay" id="menuDrawer" onclick="closeMenuOnOverlay(event)">
+    <div class="sliding-drawer">
+      <div class="drawer-header">
+        <span class="drawer-brand">Menu & Archive</span>
+        <button class="drawer-close-btn" onclick="closeMenu()">×</button>
+      </div>
+
+      <div class="drawer-content">
+        <ul class="drawer-nav-list">
+          <li class="drawer-nav-item"><a href="process.html" class="drawer-nav-link" onclick="closeMenu()">The Process & Archive</a></li>
+          <li class="drawer-nav-item"><a href="contact.html" class="drawer-nav-link">Contact</a></li>
+        </ul>
+
+        <div class="drawer-section-title">
+          <span>Other Works & Archives</span>
+        </div>
+        <ul class="other-porto-list">
+            <li class="other-porto-item">
+                <a href="https://drive.google.com/file/d/1i0SB8YUEjIgnbiUX6BzV2bdCp1w4LWoh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+                  <span class="other-porto-name">LAindiemovie Production Certificate</span>
+                  <span class="other-porto-category">Workshop / 2026</span>
+                </a>
+              </li>
+              <li class="other-porto-item">
+                <a href="https://drive.google.com/file/d/1Bj9MGuftMdq4cF8lsH-9ATu0FHa9Jltm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+                  <span class="other-porto-name">Short Film Proposal </span>
+                  <span class="other-porto-category">Proposal / 2026</span>
+                </a>
+              </li>
+              <li class="other-porto-item">
+                <a href="https://drive.google.com/file/d/1DDEDv8gpG-J9OokumJE211-S70w5dQ_l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+                  <span class="other-porto-name">Safe Care UGC</span>
+                  <span class="other-porto-category">UGC Reels Content / 2026</span>
+                </a>
+              </li>
+              <li class="other-porto-item">
+                <a href="https://drive.google.com/file/d/1Xb36VXNxr9Mb7S17IWzQufXVi0RPoA0P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+                  <span class="other-porto-name">UGC Content Research</span>
+                  <span class="other-porto-category">Research Doc / 2026</span>
+                </a>
+              </li>
+          <li class="other-porto-item">
+            <a href="https://www.instagram.com/reel/DOlWcc6j-jA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+              <span class="other-porto-name">Moov.id Padel Content</span>
+              <span class="other-porto-category">Reels Content / 2025</span>
+            </a>
+          </li>
+          <li class="other-porto-item">
+            <a href="https://drive.google.com/file/d/104yNz1N4ce8m02Gc4cMeCPlhCztXP5Er/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+              <span class="other-porto-name">Lapor Pak Built In Script</span>
+              <span class="other-porto-category">Internship / 2024</span>
+            </a>
+          </li>
+          <li class="other-porto-item">
+            <a href="https://docs.google.com/spreadsheets/d/1t9R_JRkOkiOKX5W1Q5h-cQa6wGC04Tn8/edit?usp=sharing&ouid=108978754058608842218&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+              <span class="other-porto-name">Content Calendar/Planning</span>
+              <span class="other-porto-category">Digital Marketing Course / 2022</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="projectModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      
+      <a href="#" id="modalVideoLink" target="_blank" rel="noopener noreferrer" class="modal-video-link">
+        <img id="modalVideoImg" src="" alt="Thumbnail Video">
+        <div class="play-button-overlay">
+          <div class="play-icon"></div>
+          <span class="play-text">Click to Watch</span>
+        </div>
+      </a>
+
+      <div class="modal-body">
+        <div>
+          <h2 class="modal-main-title" id="modalTitle"></h2>
+          <div class="modal-sub" id="modalYear"></div>
+          
+          <div class="modal-synopsis-label">Sinopsis</div>
+          <p class="modal-synopsis" id="modalSynopsis"></p>
+        </div>
+
+        <div class="modal-meta-sidebar">
+          <div class="modal-meta-row" id="modalWrittenRow">
+            <div class="modal-meta-label">Written & Directed By</div>
+            <div class="modal-meta-val" id="modalWritten"></div>
+          </div>
+          <div class="modal-meta-row" id="modalGenreRow">
+            <div class="modal-meta-label">Genre</div>
+            <div class="modal-meta-val" id="modalGenre"></div>
+          </div>
+          <div class="modal-meta-row" id="modalDurationRow">
+            <div class="modal-meta-label">Duration</div>
+            <div class="modal-meta-val" id="modalDuration"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Andi Davalah</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset khusus untuk tampilan Single Page (No Scroll) */
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .contact-wrapper {
+      padding: 0 36px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Posisi Tengah Kartu Nama */
+    .card-stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0 60px 0;
+    }
+
+    /* Minimalist Business Card Box */
+    .business-card {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 580px;
+      border: 1px solid #e5e1d7;
+      padding: 48px 44px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .business-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Status Availability Badge */
+    .card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #f0ece3;
+      padding-bottom: 16px;
+    }
+
+    .availability-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #333333;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #27ae60;
+      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+    }
+
+    .card-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 10px;
+      color: #999999;
+      letter-spacing: 0.08em;
+    }
+
+    /* Header Isi Kartu */
+    .card-headline {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #767676;
+      margin-bottom: 8px;
+    }
+
+    .card-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      color: #111111;
+    }
+
+    .card-role {
+      font-size: 13px;
+      color: #555555;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    /* Kalimat Utama "Let's Work Together!" */
+    .card-callout {
+      background-color: #F8F7F3;
+      padding: 16px 20px;
+      border-left: 3px solid #111111;
+      margin-bottom: 32px;
+    }
+
+    .callout-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #111111;
+      margin-bottom: 4px;
+    }
+
+    .callout-sub {
+      font-size: 12px;
+      color: #666666;
+      line-height: 1.4;
+    }
+
+    /* Daftar Kontak (Dua Kolom) */
+    .card-links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 16px;
+      column-gap: 24px;
+      border-top: 1px solid #f0ece3;
+      padding-top: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .contact-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888888;
+    }
+
+    .contact-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #111111;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      width: fit-content;
+    }
+
+    .contact-link:hover {
+      opacity: 0.55;
+      transform: translateX(2px);
+    }
+
+    /* Footer Sederhana */
+    .simple-footer {
+      border-top: 1px solid #e7e3da;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #888888;
+    }
+
+    /* Responsif Layar Kecil */
+    @media (max-width: 600px) {
+      .contact-wrapper {
+        padding: 0 20px;
+      }
+      .business-card {
+        padding: 32px 24px;
+      }
+      .card-name {
+        font-size: 24px;
+      }
+      .card-links-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .simple-footer {
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-wrapper">
+    <!-- Header dengan Tombol Back ke Home -->
+    <header class="portfolio-header">
+      <div class="header-left">
+        <a href="index.html" class="nav-btn" style="text-decoration:none; color:inherit;">← BACK</a>
+        <span class="divider">/</span>
+        <span class="current-page">CONTACT</span>
+      </div>
+      <div class="brand-logo"></div>
+      <div class="header-right"></div>
+    </header>
+
+    <!-- Stage Tengah: Business Card -->
+    <main class="card-stage">
+      <div class="business-card">
+        
+        <!-- Status Bar Atas -->
+        <div class="card-top-row">
+          <div class="availability-tag">
+         <!--  <span class="status-dot"></span> -->
+            <span>Let’s Work Together!</span>
+          </div>
+          <!-- <span class="card-code">[ID / BDG]</span> -->
+        </div>
+
+        <!-- Identitas Utama -->
+        <div class="card-headline">Filmmaker & Content Creator</div>
+        <h1 class="card-name">ANDI ALFABIANO DAVALAH</h1>
+        <p class="card-role">
+          Narrative Fiction • Commercial • Content Writing • Creative Production
+        </p>
+
+        <!-- Pesan Callout Kerja Sama 
+        <div class="card-callout">
+          <div class="callout-title">Let’s Work Together!</div>
+          <div class="callout-sub">
+            Open for feature & short film projects, brand commercials, writing commissions, and creative consultations.
+          </div>
+        </div>
+
+        -->
+
+        <!-- Daftar Tautan Kontak & Media Sosial -->
+        <div class="card-links-grid">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:andidavalah@gmail.com" class="contact-link">
+              andidavalah@gmail.com ↗
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp</span>
+            <a href="https://wa.me/6285173470104" target="_blank" rel="noopener noreferrer" class="contact-link">
+              +62 851-7347-0104 ↗
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/andialfabiano" target="_blank" rel="noopener noreferrer" class="contact-link">
+              in/andialfabiano ↗
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Instagram</span>
+            <a href="https://www.instagram.com/andialfabiano" target="_blank" rel="noopener noreferrer" class="contact-link">
+              @andialfabiano ↗
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Letterboxd</span>
+            <a href="https://letterboxd.com/Davalah" target="_blank" rel="noopener noreferrer" class="contact-link">
+              letterboxd.com/Davalah ↗
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Location</span>
+            <span style="font-size: 13px; font-weight: 600; color: #111;">
+              Bandung, Indonesia
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer Bawah Konsisten -->
+    <footer class="simple-footer">
+      <div>© 2026 Andi Davalah. All inquiries welcome.</div>
+      <div>Response time: within 24–48 hours</div>
+    </footer>
+  </div>
+
+</body>
+</html>

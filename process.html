@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Process — Andi Davalah</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styling Halaman Process & Archive */
+    .process-intro {
+      margin-bottom: 56px;
+      max-width: 720px;
+    }
+
+    .process-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .process-subtitle {
+      font-size: 14px;
+      color: #666666;
+      line-height: 1.6;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    /* Grid Layout Bersih & Tegak (Clean Archive Grid) */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 100px;
+    }
+
+    /* Kartu Arsip Tegak Minimalis */
+    .process-card {
+      background: #ffffff;
+      padding: 16px 16px 20px 16px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eae6de;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .process-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Wadah Gambar */
+    .process-img-box {
+      width: 100%;
+      overflow: hidden;
+      background-color: #f1efe9;
+      margin-bottom: 14px;
+    }
+
+    .process-img-box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .process-card:hover .process-img-box img {
+      transform: scale(1.03);
+    }
+
+    /* Variasi Rasio Foto */
+    .aspect-4-3 { aspect-ratio: 4 / 3; }
+    .aspect-3-4 { aspect-ratio: 3 / 4; }
+    .aspect-16-9 { aspect-ratio: 16 / 9; }
+    .aspect-square { aspect-ratio: 1 / 1; }
+
+    /* Info Catatan Pinggir (Typewriter Style) */
+    .process-caption {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      line-height: 1.5;
+      color: #333333;
+    }
+
+    .process-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888888;
+      margin-bottom: 8px;
+      border-bottom: 1px dashed #e2ded5;
+      padding-bottom: 6px;
+    }
+
+    .process-note {
+      color: #2b2b2b;
+      margin-top: 4px;
+    }
+
+    /* Responsif */
+    @media (max-width: 992px) {
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="portfolio-wrapper">
+    <!-- Header dengan Tombol Back -->
+    <header class="portfolio-header">
+      <div class="header-left">
+        <a href="index.html" class="nav-btn" style="text-decoration:none; color:inherit;">← BACK</a>
+        <span class="divider">/</span>
+        <span class="current-page">THE PROCESS & ARCHIVE</span>
+      </div>
+      <div class="brand-logo"></div>
+      <div class="header-right"></div>
+    </header>
+
+    <!-- Intro Catatan Lapangan -->
+    <div class="process-intro">
+      <h1 class="process-title">Production Notes & Process Archive</h1>
+      <p class="process-subtitle">
+        [ARCHIVE: 2024–2026] Behind The Scenes, on-set photography, lighting floor plans, screening results, and production fragments before making their way onto the screen.
+      </p>
+    </div>
+
+    <!-- Grid Arsip (12 Items - Tegak & Rapi) -->
+    <main class="process-grid">
+
+      <!-- Item 1 -->
+      <div class="process-card">
+        <div class="process-img-box aspect-4-3">
+          <img src="https://lh3.googleusercontent.com/d/1xBtJQiXBwCtW60R0rA2soLAqIyAJVYvp" alt="Script draft annotations">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Directing Scene</span>
+            <span>Abed's Journey — Feature Film</span>
+          </div>
+          <p class="process-note">
+            Here, I am directing a scene where little kids are riding bikes and having fun. The difficulty lies in the children who are too busy playing, which I handle well by giving them personal direction.          </p>
+        </div>
+      </div>
+
+      <!-- Item 2: Monitor Framing -->
+      <div class="process-card">
+        <div class="process-img-box aspect-3-4">
+          <img src="https://lh3.googleusercontent.com/d/1An-XYCIlvMLuif4vbywO_2KHOU3D4iiI" alt="Monitor framing">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Directing Actor</span>
+            <span>Abed's Journey — Feature Film</span>
+          </div>
+          <p class="process-note">
+            Next to me is our main character, Abed. Here, I am directing him for one of the classroom scenes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 3 blocking -->
+      <div class="process-card">
+        <div class="process-img-box aspect-16-9">
+          <img src="https://lh3.googleusercontent.com/d/1NvNk5eo3UDEgki1tPtIyvPzK4SY3e5E-" alt="Night Shoot Rigging">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Blocking Diagram</span>
+            <span>Abed's Journey — Feature Film</span>
+          </div>
+          <p class="process-note">
+            During the shoot, we followed a blocking diagram I had created. This element was essential for managing the placement of talent and equipment, as well as how the scene works.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 4 postpro -->
+      <div class="process-card">
+        <div class="process-img-box aspect-square">
+          <img src="https://lh3.googleusercontent.com/d/1HmCVtRVh7n7FuAAAoKoUNByhPAHW1S4z" alt="Audio Foley Log">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Editing / Post-pro</span>
+            <span>Abed's Journey — Feature Film</span>
+          </div>
+          <p class="process-note">
+            It took me approximately 2-3 weeks to edit this feature film up to the picture lock stage. I used DaVinci Resolve for the cut to cut and other editing tasks.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 5: Color Palette & Texture Research -->
+      <div class="process-card">
+        <div class="process-img-box aspect-4-3">
+          <img src="https://lh3.googleusercontent.com/d/1AwCjeVzFga532SJwTG1TDiClWJtFbvPk" alt="Color moodboard">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Crew and Talent</span>
+            <span>Abed's Journey — Feature Film</span>
+          </div>
+          <p class="process-note">
+            Group photo with the crew and main talent, after 20 days of shooting (every weekend). It's a wrap!
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 6: Wardrobe & Fitting -->
+  <div class="process-card">
+    <div class="process-img-box aspect-3-4">
+      <img src="https://lh3.googleusercontent.com/d/1sObsjuE8x9oOWLRZa-QHGdbf-1bSaRKD" alt="Costume fitting">
+    </div>
+    <div class="process-caption">
+      <div class="process-meta">
+        <span>Screening</span>
+        <span>Abed's Journey — Feature Film</span>
+      </div>
+      <p class="process-note">
+        It felt amazing to see my own name on the big cinema screen and to be watched by over 500 people who had paid for tickets. It was an unforgettable moment.
+      </p>
+    </div>
+  </div>
+
+      <!-- Item 7: Location Scouting (Recce) -->
+      <div class="process-card">
+        <div class="process-img-box aspect-16-9">
+          <img src="https://lh3.googleusercontent.com/d/1azjOVv1xDkuJ9t2tSuuHWs01FRXdjVgT" alt="Location Recce">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Outdoor Shoot</span>
+            <span>Sadar Waras - Short Movie</span>
+          </div>
+          <p class="process-note">
+            Here, I am setting up the composition for a medium close-up shot outdoor. We were really racing against unpredictable weather, but fortunately, the shooting schedule I had planned went smoothly on schedule.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 8: Wardrobe & Fitting -->
+      <div class="process-card">
+        <div class="process-img-box aspect-3-4">
+          <img src="https://lh3.googleusercontent.com/d/1oLHdY5VE8T8oxXQP_QnCddTXnShnbRJU" alt="Costume fitting">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Lunch Break</span>
+            <span>Sadar Waras - Short Movie</span>
+          </div>
+          <p class="process-note">
+            I sleep with the clapperboard during breaks, while thinking about the shooting plan for the next scene.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 9: Sound & Audio Foley Notes -->
+      <div class="process-card">
+        <div class="process-img-box aspect-square">
+          <img src="https://lh3.googleusercontent.com/d/1iOW6tTySFBe-dyCq2lVAXVVPUqs25iKV" alt="Audio Foley Log">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Indoor Shoot</span>
+            <span>Sadar Waras - Short Movie</span>
+          </div>
+          <p class="process-note">
+            We encountered some lighting related challenges during the indoor shoot, but we managed to resolve them by improvising the scene.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 10: Slating / Clapperboard Take Log -->
+      <div class="process-card">
+        <div class="process-img-box aspect-4-3">
+          <img src="https://lh3.googleusercontent.com/d/1xmZloWMsxhjzS6m5F0xvnAevZRWW3qYn" alt="Slate Clapperboard">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Screening @KDMCinemaid</span>
+            <span>Sadar Waras - Short Movie</span>
+          </div>
+          <p class="process-note">
+            Our film was finally screened on KDMcinemaid, and we held an in-depth discussion about the film itself, the issues it addresses, and its technical aspects.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 11: Editorial Timeline Scraps -->
+      <div class="process-card">
+        <div class="process-img-box aspect-16-9">
+          <img src="https://lh3.googleusercontent.com/d/1H-NGSAbQoZwd1RZzCwIpSOmpiZ5vgnnB" alt="Editorial Timeline">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Location Scouting</span>
+            <span>Dear Candidate, - Short Movie</span>
+          </div>
+          <p class="process-note">
+            I used the FinderKit app here for the storyboard. At location scouting, we felt that the sunlight was starting to fade during the day due to cloudy weather, so we decided to schedule the shoot for the morning.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 12: Color Grading Before & After Frame -->
+      <div class="process-card">
+        <div class="process-img-box aspect-4-3">
+          <img src="https://lh3.googleusercontent.com/d/1TurVhbUdGAXAk-_nD820jIxkmwQpVj_m" alt="Color Grading Still">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>On Set Shooting</span>
+            <span>Dear Candidate, - Short Movie</span>
+          </div>
+          <p class="process-note">
+            Here, we're trying to balancing highlight rolloff while bringing out warm skin tones without drowning the shadow details.
+          </p>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer Konsisten -->
+    <footer class="portfolio-footer">
+      <div class="footer-bottom" style="border:none; padding-top:0;">
+        <div>© 2026 Andi Davalah. Process & Production Archives.</div>
+        <div>Based in Bandung, West Java, Indonesia</div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
