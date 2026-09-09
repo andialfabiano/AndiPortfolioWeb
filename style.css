@@ -242,14 +242,14 @@ a.nav-btn,
   pointer-events: auto;
 }
 
-.sliding-drawer {
+sliding-drawer {
   position: fixed;
   top: 0;
   left: 0;
   width: 440px;
   max-width: 88vw;
   height: 100vh;
-  height: 100dvh;              /* Menghindari bug height di browser mobile */
+  height: 100dvh;
   background-color: #F8F7F3;
   z-index: 1001;
   transform: translateX(-100%);
@@ -257,7 +257,8 @@ a.nav-btn,
   display: flex;
   flex-direction: column;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
-  overscroll-behavior-y: contain;
+  /* Ubah overscroll-behavior menjadi auto agar gesture scroll tidak di-lock */
+  overscroll-behavior: auto;
 }
 
 .drawer-overlay.active .sliding-drawer {
@@ -296,19 +297,20 @@ a.nav-btn,
 }
 
 .drawer-content {
-  padding: 32px 32px 0 32px;
-  overflow-y: auto !important;
+  padding: 32px 32px 60px 32px;
+  overflow-y: scroll !important; /* Paksa aktifkan track scroll */
   -webkit-overflow-scrolling: touch;
-  flex: 1;
-  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;                 /* KUNCI: Membuat flex child bisa discroll saat isinya meluap */
+  height: auto;                  /* Hapus height: 100% agar tidak bentrok dengan flexbox */
 }
 
+/* Ruang kosong ekstra di bawah daftar link terakhir */
 .drawer-content::after {
   content: "";
   display: block;
-  height: 180px;               /* Memberi ruang kosong 180px di bawah link terakhir */
+  height: 200px;
   width: 100%;
-  pointer-events: none;
 }
 
 .drawer-nav-list {
