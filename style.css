@@ -697,4 +697,13 @@ body {
     width: 100vw;
     max-width: 100vw;
   }
+button.nav-btn,
+a.nav-btn,
+.header-left button,
+.header-left a {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
 }
