@@ -103,45 +103,47 @@ const projects = [
 
 // Render kartu di grid
 const container = document.getElementById('portfolio-grid');
-container.innerHTML = projects.map(item => `
-  <div class="project-card" onclick="openModal(${item.id})">
-    <div class="image-container">
-      <img src="${item.image}" alt="${item.title}" loading="lazy">
+if (container) {
+  container.innerHTML = projects.map(item => `
+    <div class="project-card" onclick="openModal(${item.id})">
+      <div class="image-container">
+        <img src="${item.image}" alt="${item.title}" loading="lazy">
 
-      <div class="project-overlay">
-        <div class="overlay-details">
-          ${item.written ? `
-            <div class="overlay-section">
-              <span class="overlay-label">WRITTEN & DIRECTED BY</span>
-              <p class="overlay-value">${item.written}</p>
-            </div>
-          ` : ''}
+        <div class="project-overlay">
+          <div class="overlay-details">
+            ${item.written ? `
+              <div class="overlay-section">
+                <span class="overlay-label">WRITTEN & DIRECTED BY</span>
+                <p class="overlay-value">${item.written}</p>
+              </div>
+            ` : ''}
 
-          ${item.genre ? `
-            <div class="overlay-section">
-              <span class="overlay-label">GENRE</span>
-              <p class="overlay-value">${item.genre}</p>
-            </div>
-          ` : ''}
+            ${item.genre ? `
+              <div class="overlay-section">
+                <span class="overlay-label">GENRE</span>
+                <p class="overlay-value">${item.genre}</p>
+              </div>
+            ` : ''}
 
-          ${item.duration ? `
-            <div class="overlay-section">
-              <span class="overlay-label">DURATION</span>
-              <p class="overlay-value">${item.duration}</p>
-            </div>
-          ` : ''}
+            ${item.duration ? `
+              <div class="overlay-section">
+                <span class="overlay-label">DURATION</span>
+                <p class="overlay-value">${item.duration}</p>
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="overlay-badge">${item.title}</div>
         </div>
+      </div>
 
-        <div class="overlay-badge">${item.title}</div>
+      <div class="project-info">
+        <span class="project-year">${item.year}</span>
+        <h2 class="project-title">${item.title}</h2>
       </div>
     </div>
-
-    <div class="project-info">
-      <span class="project-year">${item.year}</span>
-      <h2 class="project-title">${item.title}</h2>
-    </div>
-  </div>
-`).join('');
+  `).join('');
+}
 
 // =================================================
 // LOGIKA SLIDING MENU DRAWER
@@ -149,16 +151,22 @@ container.innerHTML = projects.map(item => `
 const menuDrawer = document.getElementById('menuDrawer');
 
 function openMenu() {
-  menuDrawer.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  if (menuDrawer) {
+    menuDrawer.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Kunci scroll halaman utama belakang
+  }
 }
 
 function closeMenu() {
-  menuDrawer.classList.remove('active');
-  document.body.style.overflow = 'auto';
+  if (menuDrawer) {
+    menuDrawer.classList.remove('active');
+    document.body.style.overflow = ''; // Lepas kunci scroll agar kembali normal
+  }
 }
 
 function closeMenuOnOverlay(e) {
+  // Hanya tutup drawer jika klik benar-benar mendarat di latar belakang gelap (overlay),
+  // BUKAN di area putih menu.
   if (e.target === menuDrawer) {
     closeMenu();
   }
@@ -171,7 +179,7 @@ const modal = document.getElementById('projectModal');
 
 function openModal(id) {
   const project = projects.find(p => p.id === id);
-  if (!project) return;
+  if (!project || !modal) return;
 
   document.getElementById('modalTitle').innerText = project.title;
   document.getElementById('modalYear').innerText = project.year;
@@ -185,24 +193,27 @@ function openModal(id) {
   document.getElementById('modalDuration').innerText = project.duration || '-';
 
   modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden'; // Kunci scroll halaman utama belakang
 }
 
 function closeModal() {
-  modal.classList.remove('active');
-  document.body.style.overflow = 'auto';
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Lepas kunci scroll agar kembali normal
+  }
 }
 
 function closeModalOnBackdrop(e) {
+  // Hanya tutup modal jika klik mendarat di latar belakang gelap (overlay)
   if (e.target === modal) {
     closeModal();
   }
 }
 
-// Tutup Menu atau Modal dengan tombol ESC
+// Tutup Menu atau Modal menggunakan tombol "Escape" pada keyboard
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    if (modal.classList.contains('active')) closeModal();
-    if (menuDrawer.classList.contains('active')) closeMenu();
+    if (modal && modal.classList.contains('active')) closeModal();
+    if (menuDrawer && menuDrawer.classList.contains('active')) closeMenu();
   }
 });
