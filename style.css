@@ -256,6 +256,7 @@ a.nav-btn,
   display: flex;
   flex-direction: column;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+  overscroll-behavior-y: contain;
 }
 
 .drawer-overlay.active .sliding-drawer {
@@ -294,7 +295,9 @@ a.nav-btn,
 
 .drawer-content {
   padding: 32px;
-  overflow-y: auto;
+  padding-bottom: 120px; 
+  overflow-y: scroll; 
+  -webkit-overflow-scrolling: touch; 
   flex: 1;
 }
 
