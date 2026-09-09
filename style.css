@@ -111,9 +111,11 @@ a.nav-btn,
 }
 
 /* 3-Column Grid Layout Desktop */
+/* Grid Galeri Utama (Default Desktop: 3 Kolom) */
 .gallery-grid {
+  --grid-cols: 3;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
   column-gap: 32px;
   row-gap: 56px;
   margin-bottom: 80px;
@@ -677,10 +679,9 @@ a.nav-btn,
 /* MEDIA QUERIES (RESPONSIF)                         */
 /* ================================================= */
 
-/* Tablet */
 @media (max-width: 900px) {
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    --grid-cols: 2;
     column-gap: 20px;
     row-gap: 40px;
   }
@@ -694,14 +695,14 @@ a.nav-btn,
   }
 }
 
-/* Handphone */
+/* Handphone (Layar di bawah 600px): Jadi 1 Kolom */
 @media (max-width: 600px) {
   .portfolio-wrapper {
     padding: 0 20px;
   }
 
   .gallery-grid {
-    grid-template-columns: 1fr;
+    --grid-cols: 1;
     column-gap: 0;
     row-gap: 36px;
   }
