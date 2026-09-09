@@ -4,42 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Andi Davalah</title>
-  
-  <link rel="stylesheet" href="style.css?v=5.0">
-  <style>
-    /* Mengunci aturan responsif langsung di dokumen agar tidak kalah dengan cache CSS */
-    .gallery-grid {
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      column-gap: 32px;
-      row-gap: 56px;
-      margin-bottom: 80px;
-    }
-
-    @media (max-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        column-gap: 20px;
-        row-gap: 40px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .gallery-grid {
-        grid-template-columns: 1fr !important;
-        column-gap: 0;
-        row-gap: 36px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=6.0">
 </head>
 <body>
 
   <div class="portfolio-wrapper">
     <header class="portfolio-header">
       <div class="header-left">
-        <button class="nav-btn" style="color: #111111 !important; -webkit-text-fill-color: #111111; display: inline-flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer;" onclick="openMenu()">
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+        <button class="nav-btn" onclick="openMenu()">
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line y1="1" x2="14" y2="1" stroke="#111111" stroke-width="1.5"/>
             <line y1="5" x2="14" y2="5" stroke="#111111" stroke-width="1.5"/>
             <line y1="9" x2="14" y2="9" stroke="#111111" stroke-width="1.5"/>
@@ -49,12 +22,10 @@
         <span class="divider">/</span>
         <span class="current-page">ANDI DAVALAH'S PORTFOLIO</span>
       </div>
-      
-      <div class="brand-logo"></div> 
+      <div class="brand-logo"></div>
       <div class="header-right"></div>
     </header>
 
-    <!-- Tag main sudah bersih dari inline style 3 kolom -->
     <main class="gallery-grid" id="portfolio-grid"></main>
 
     <footer class="portfolio-footer">
@@ -91,72 +62,72 @@
     </footer>
   </div>
 
-  <!-- Sliding Drawer Menu -->
-  <div class="drawer-overlay" id="menuDrawer" onclick="closeMenuOnOverlay(event)">
-    <div class="sliding-drawer">
-      <div class="drawer-header">
-        <span class="drawer-brand">Menu & Archive</span>
-        <button class="drawer-close-btn" onclick="closeMenu()">×</button>
-      </div>
+  <!-- Menu Drawer & Overlay Terpisah Rapi -->
+  <div class="drawer-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+  
+  <div class="sliding-drawer" id="menuDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">Menu & Archive</span>
+      <button class="drawer-close-btn" onclick="closeMenu()">×</button>
+    </div>
 
-      <div class="drawer-content">
-        <ul class="drawer-nav-list">
-          <li class="drawer-nav-item"><a href="process.html" class="drawer-nav-link" onclick="closeMenu()">The Process & Archive</a></li>
-          <li class="drawer-nav-item"><a href="contact.html" class="drawer-nav-link">Contact</a></li>
-        </ul>
+    <div class="drawer-content">
+      <ul class="drawer-nav-list">
+        <li class="drawer-nav-item"><a href="process.html" class="drawer-nav-link" onclick="closeMenu()">The Process & Archive</a></li>
+        <li class="drawer-nav-item"><a href="contact.html" class="drawer-nav-link">Contact</a></li>
+      </ul>
 
-        <div class="drawer-section-title">
-          <span>Other Works & Archives</span>
-        </div>
-        <ul class="other-porto-list">
-          <li class="other-porto-item">
-            <a href="https://drive.google.com/file/d/1i0SB8YUEjIgnbiUX6BzV2bdCp1w4LWoh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-              <span class="other-porto-name">LAindiemovie Production Certificate</span>
-              <span class="other-porto-category">Workshop / 2026</span>
-            </a>
-          </li>
-          <li class="other-porto-item">
-            <a href="https://drive.google.com/file/d/1Bj9MGuftMdq4cF8lsH-9ATu0FHa9Jltm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-              <span class="other-porto-name">Short Film Proposal</span>
-              <span class="other-porto-category">Proposal / 2026</span>
-            </a>
-          </li>
-          <li class="other-porto-item">
-            <a href="https://drive.google.com/file/d/1DDEDv8gpG-J9OokumJE211-S70w5dQ_l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-              <span class="other-porto-name">Safe Care UGC</span>
-              <span class="other-porto-category">UGC Reels Content / 2026</span>
-            </a>
-          </li>
-          <li class="other-porto-item">
-            <a href="https://drive.google.com/file/d/1Xb36VXNxr9Mb7S17IWzQufXVi0RPoA0P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-              <span class="other-porto-name">UGC Content Research</span>
-              <span class="other-porto-category">Research Doc / 2026</span>
-            </a>
-          </li>
-          <li class="other-porto-item">
-            <a href="https://www.instagram.com/reel/DOlWcc6j-jA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-              <span class="other-porto-name">Moov.id Padel Content</span>
-              <span class="other-porto-category">Reels Content / 2025</span>
-            </a>
-          </li>
-          <li class="other-porto-item">
-            <a href="https://drive.google.com/file/d/104yNz1N4ce8m02Gc4cMeCPlhCztXP5Er/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-              <span class="other-porto-name">Lapor Pak Built In Script</span>
-              <span class="other-porto-category">Internship / 2024</span>
-            </a>
-          </li>
-          <li class="other-porto-item">
-            <a href="https://docs.google.com/spreadsheets/d/1t9R_JRkOkiOKX5W1Q5h-cQa6wGC04Tn8/edit?usp=sharing&ouid=108978754058608842218&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-              <span class="other-porto-name">Content Calendar/Planning</span>
-              <span class="other-porto-category">Digital Marketing Course / 2022</span>
-            </a>
-          </li>
-        </ul>
+      <div class="drawer-section-title">
+        <span>Other Works & Archives</span>
       </div>
+      <ul class="other-porto-list">
+        <li class="other-porto-item">
+          <a href="https://drive.google.com/file/d/1i0SB8YUEjIgnbiUX6BzV2bdCp1w4LWoh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+            <span class="other-porto-name">LAindiemovie Production Certificate</span>
+            <span class="other-porto-category">Workshop / 2026</span>
+          </a>
+        </li>
+        <li class="other-porto-item">
+          <a href="https://drive.google.com/file/d/1Bj9MGuftMdq4cF8lsH-9ATu0FHa9Jltm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+            <span class="other-porto-name">Short Film Proposal</span>
+            <span class="other-porto-category">Proposal / 2026</span>
+          </a>
+        </li>
+        <li class="other-porto-item">
+          <a href="https://drive.google.com/file/d/1DDEDv8gpG-J9OokumJE211-S70w5dQ_l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+            <span class="other-porto-name">Safe Care UGC</span>
+            <span class="other-porto-category">UGC Reels Content / 2026</span>
+          </a>
+        </li>
+        <li class="other-porto-item">
+          <a href="https://drive.google.com/file/d/1Xb36VXNxr9Mb7S17IWzQufXVi0RPoA0P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+            <span class="other-porto-name">UGC Content Research</span>
+            <span class="other-porto-category">Research Doc / 2026</span>
+          </a>
+        </li>
+        <li class="other-porto-item">
+          <a href="https://www.instagram.com/reel/DOlWcc6j-jA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+            <span class="other-porto-name">Moov.id Padel Content</span>
+            <span class="other-porto-category">Reels Content / 2025</span>
+          </a>
+        </li>
+        <li class="other-porto-item">
+          <a href="https://drive.google.com/file/d/104yNz1N4ce8m02Gc4cMeCPlhCztXP5Er/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+            <span class="other-porto-name">Lapor Pak Built In Script</span>
+            <span class="other-porto-category">Internship / 2024</span>
+          </a>
+        </li>
+        <li class="other-porto-item">
+          <a href="https://docs.google.com/spreadsheets/d/1t9R_JRkOkiOKX5W1Q5h-cQa6wGC04Tn8/edit?usp=sharing&ouid=108978754058608842218&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="other-porto-link">
+            <span class="other-porto-name">Content Calendar/Planning</span>
+            <span class="other-porto-category">Digital Marketing Course / 2022</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- Pop-up Modal Container (Tag modal-backdrop yang hilang sudah dikembalikan) -->
+  <!-- Pop-up Modal Detail Proyek -->
   <div class="modal-backdrop" id="projectModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()">×</button>
