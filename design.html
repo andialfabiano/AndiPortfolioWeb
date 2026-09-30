@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design & Branding — Andi Davalah</title>
+  <link rel="stylesheet" href="style.css?v=18.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8F7F3;
+      color: #111111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Container Halaman (Scrollable) */
+    .design-page-wrapper {
+      padding: 0 48px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header Navigasi Konsisten */
+    .showcase-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: #F8F7F3;
+      margin-bottom: 20px;
+    }
+
+    /* Panggung Showcase Utama */
+    .showcase-stage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 0 80px 0;
+    }
+
+    .stage-content-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 56px;
+      width: 100%;
+    }
+
+    /* Informasi Teks Proyek */
+    .project-info-panel {
+      flex: 1;
+      max-width: 480px;
+    }
+
+    .project-category {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 12px;
+    }
+
+    .project-hero-title {
+      font-size: clamp(34px, 4.5vw, 60px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+      color: #111111;
+    }
+
+    .view-detail-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #111111;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .view-detail-btn:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+
+    /* Visual Mockup Card */
+    .project-preview-panel {
+      flex: 1.25;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-mockup-card {
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 16 / 10;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e7e3da;
+      background-color: #e5e3dc;
+    }
+
+    .project-mockup-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-mockup-card:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Tombol Panah Slider */
+    .slider-nav-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 48px;
+    }
+
+    .slider-arrows {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .arrow-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #dcd8cf;
+      background: #ffffff;
+      color: #111111;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: background-color 0.2s, border-color 0.2s, transform 0.2s, color 0.2s;
+    }
+
+    .arrow-btn:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      transform: scale(1.05);
+    }
+
+    .slider-counter {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: #888888;
+      margin-left: 6px;
+    }
+
+    .slider-counter span {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    /* ================================================= */
+    /* MODAL DETAIL ALA UPWORK                           */
+    /* ================================================= */
+    .upwork-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .upwork-modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .upwork-modal-card {
+      background: #ffffff;
+      color: #111111;
+      width: 100%;
+      max-width: 1020px;
+      max-height: 88vh;
+      border-radius: 8px;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      border: 1px solid #eae6de;
+    }
+
+    .modal-gallery-side {
+      background-color: #f7f6f2;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto;
+    }
+
+    .modal-gallery-side img {
+      width: 100%;
+      border-radius: 4px;
+      object-fit: cover;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eae6de;
+    }
+
+    .modal-info-side {
+      padding: 44px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+      background: #ffffff;
+    }
+
+    .modal-close-trigger {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333333;
+      line-height: 1;
+      z-index: 20;
+    }
+
+    .modal-close-trigger:hover {
+      opacity: 0.6;
+    }
+
+    .modal-meta-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888888;
+      margin-bottom: 6px;
+    }
+
+    .modal-title-main {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .modal-desc-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #444444;
+      margin-bottom: 28px;
+    }
+
+    .meta-specs-list {
+      border-top: 1px solid #eae6de;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .meta-spec-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .spec-label {
+      color: #888888;
+      font-weight: 500;
+    }
+
+    .spec-value {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    /* Penyesuaian Responsif */
+    @media (max-width: 900px) {
+      .design-page-wrapper {
+        padding: 0 24px;
+      }
+      .stage-content-row {
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px;
+      }
+      .project-info-panel {
+        max-width: 100%;
+        text-align: center;
+      }
+      .slider-nav-row {
+        justify-content: center;
+        margin-top: 28px;
+      }
+      .upwork-modal-card {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+      }
+      .modal-gallery-side {
+        padding: 24px;
+      }
+      .modal-info-side {
+        padding: 28px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="design-page-wrapper">
+    <!-- Header Standar Portfolio dengan Tombol MENU -->
+    <header class="portfolio-header showcase-header">
+      <div class="header-left">
+        <button class="nav-btn" onclick="openMenu()">
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="1" x2="14" y2="1" stroke="#111111" stroke-width="1.5"/>
+            <line y1="5" x2="14" y2="5" stroke="#111111" stroke-width="1.5"/>
+            <line y1="9" x2="14" y2="9" stroke="#111111" stroke-width="1.5"/>
+          </svg>
+          <span>MENU</span>
+        </button>
+        <span class="divider">/</span>
+        <span class="current-page">DESIGN & BRANDING</span>
+      </div>
+      <div class="brand-logo"></div>
+      <div class="header-right"></div>
+    </header>
+
+    <!-- Showcase Tengah -->
+    <main class="showcase-stage">
+      <div class="stage-content-row">
+        <!-- Panel Kiri: Informasi Judul & CTA -->
+        <div class="project-info-panel">
+          <div class="project-category" id="slideCategory">Logo Design & Branding</div>
+          <h1 class="project-hero-title" id="slideTitle">Sync Logo Design & Branding</h1>
+          <button class="view-detail-btn" onclick="openDesignModal()">
+            <span>View Project Detail</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Panel Kanan: Gambar Mockup -->
+        <div class="project-preview-panel">
+          <div class="project-mockup-card">
+            <img id="slideImg" src="" alt="Project Mockup Preview">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tombol Panah Slider -->
+      <div class="slider-nav-row">
+        <div class="slider-arrows">
+          <button class="arrow-btn" onclick="prevSlide()" aria-label="Previous Project">‹</button>
+          <button class="arrow-btn" onclick="nextSlide()" aria-label="Next Project">›</button>
+        </div>
+        <div class="slider-counter">
+          <span id="currentIdx">01</span> / <span id="totalIdx">07</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Lengkap Sesuai Halaman films.html -->
+    <footer class="portfolio-footer">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-bio-title">ANDI ALFABIANO DAVALAH</div>
+          <p class="footer-bio-desc">
+            Filmmaker, Content Creator, skilled in Creative Production, Content Writing, Marketing, and Research. Proficient in using various digital tools and platforms to develop, manage, and analyze content strategies. Open for directorial collaborations, and any production projects.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-header">Get In Touch</div>
+          <ul class="footer-link-list">
+            <li><a href="mailto:andidavalah@gmail.com">andidavalah@gmail.com ↗</a></li>
+            <li><a href="https://wa.me/6285173470104" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-header">Online Presence</div>
+          <ul class="footer-link-list">
+            <li><a href="https://www.linkedin.com/in/andialfabiano" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+            <li><a href="https://www.instagram.com/andialfabiano" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+            <li><a href="https://letterboxd.com/Davalah" target="_blank" rel="noopener noreferrer">Letterboxd ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Andi Davalah. All rights reserved.</div>
+        <div>Based in Bandung, West Java, Indonesia</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Menu Drawer & Overlay -->
+  <div class="drawer-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+  
+  <div class="sliding-drawer" id="menuDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">Menu & Archive</span>
+      <button class="drawer-close-btn" onclick="closeMenu()">×</button>
+    </div>
+
+    <div class="drawer-content">
+      <ul class="drawer-nav-list">
+        <li class="drawer-nav-item">
+          <a href="index.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 22px !important; font-weight: 800 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Home <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="films.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Videography & Films <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="design.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;" onclick="closeMenu()">
+            Design & Branding <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="process.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Process & Archives <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="other-works.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Other Works & Documents <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Contact <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pop-Up Modal Detail Ala Upwork Portfolio -->
+  <div class="upwork-modal-backdrop" id="designModal" onclick="closeModalOnOverlay(event)">
+    <div class="upwork-modal-card">
+      <button class="modal-close-trigger" onclick="closeDesignModal()">×</button>
+      
+      <!-- Sisi Kiri: Galeri Mockup -->
+      <div class="modal-gallery-side" id="modalGallery"></div>
+
+      <!-- Sisi Kanan: Spesifikasi Proyek -->
+      <div class="modal-info-side">
+        <div>
+          <div class="modal-meta-tag" id="modalCategoryTag">Logo Design & Branding</div>
+          <h2 class="modal-title-main" id="modalTitleMain">Sync Logo Design & Branding</h2>
+          <p class="modal-desc-text" id="modalDescription">
+            Deskripsi konsep dan implementasi desain.
+          </p>
+        </div>
+
+        <div class="meta-specs-list">
+          <div class="meta-spec-item">
+            <span class="spec-label">Role</span>
+            <span class="spec-value" id="modalRole">Logo Designer, Brand Strategist</span>
+          </div>
+          <div class="meta-spec-item">
+            <span class="spec-label">Tools</span>
+            <span class="spec-value" id="modalYear">Adobe Illustrator, Canva</span>
+          </div>
+          <div class="meta-spec-item">
+            <span class="spec-label">Deliverables</span>
+            <span class="spec-value" id="modalTools">Logo Design, Startup Branding</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data Project Design & Branding
+    const designProjects = [
+      {
+        id: 1,
+        title: "Sync Logo Design & Branding",
+        category: "Logo Design & Branding",
+        mainImage: "https://lh3.googleusercontent.com/d/1HAWvenXa6sGou0pHwynpRHMmfjniZ90b",
+        gallery: [
+          "https://lh3.googleusercontent.com/d/1e9_GiHQpwrNzH5LVjzLJa_Nu5dmzjrrB",
+          "https://lh3.googleusercontent.com/d/1EGgi4zMoW31q_LcJCQ5XdLJACVLNL5rK",
+          "https://lh3.googleusercontent.com/d/1hRW9XLJZCSfDUWi33M3XQisOzdw1OuUt",
+          "https://lh3.googleusercontent.com/d/1C7S6cUEQ5Oy7T_7cazn7_-sUOCDYuRyM",
+          "https://lh3.googleusercontent.com/d/1JmoreqDtCdaHblcyLHn1fCaqzYK3dSf2",
+          "https://lh3.googleusercontent.com/d/13OAtc5Wol3Y3OpYhD7wdtX0m-6xaSQow"
+        ],
+        description: "Created a visual identity and brand guideline system for Sync, an F&B kitchen management and POS operations startup. Delivered a minimal logo mark symbolizing seamless workflow synchronization, complete with typography hierarchy.",
+        role: "Logo Designer, Brand Strategist",
+        year: "Adobe Illustrator, Canva",
+        tools: "Logo Design, Startup Branding"
+      },
+      {
+        id: 2,
+        title: "Compass Shoes Product Design",
+        category: "Product Design",
+        mainImage: "https://lh3.googleusercontent.com/d/1_qV7cWja9s-BsyRO6b5PO1z1PngkPBbA",
+        gallery: [
+          "https://lh3.googleusercontent.com/d/1pWod6kHZiiw2DF76v4VH128pLypyE3zM",
+          "https://lh3.googleusercontent.com/d/1yPFyICT5Y3-eyRdrcALqxqzMfUi5cebW",
+          "https://lh3.googleusercontent.com/d/10JZs0bDaibNRKIZMgNDBoVpArLgT7my5"
+        ],
+        description: "Conceptual footwear collection for Compass Shoes paying homage to legendary bands like The Beatles, Nirvana, and Radiohead. Handled thematic ideation, material/color detailing, and high-fidelity 3D product mockups optimized for apparel and sneaker showcases.",
+        role: "Product Designer",
+        year: "Adobe Photoshop, Adobe Illustrator",
+        tools: "Product Design, Design Mockup"
+      },
+      {
+        id: 3,
+        title: "Photobooth Frame Design",
+        category: "Graphic Design",
+        mainImage: "https://lh3.googleusercontent.com/d/1GMTmpFCTo9mirwWRT6-8uGRb7HSLRyFG",
+        gallery: [
+          "https://lh3.googleusercontent.com/d/1GMTmpFCTo9mirwWRT6-8uGRb7HSLRyFG",
+          "https://lh3.googleusercontent.com/d/10Qj9HBlKygQWmYZJ9gucru6kksqC9KZT"
+        ],
+        description: 'Custom photobooth frame templates and overlay layouts for a photostrip printing business, delivering print-ready digital assets tailored for the "BizFest" event.',
+        role: "Visual Designer",
+        year: "Adobe Photoshop, Adobe Illustrator",
+        tools: "Graphic Design, Photobooth"
+      },
+      {
+        id: 4,
+        title: "Student Senate Varsity Mockup & Design",
+        category: "Graphic Design, Fashion Design",
+        mainImage: "https://lh3.googleusercontent.com/d/1JcCPg1HsCb_6oLk4QrGF1vCZ_fMDhU0x",
+        gallery: [
+          "https://lh3.googleusercontent.com/d/1JcCPg1HsCb_6oLk4QrGF1vCZ_fMDhU0x",
+          "https://lh3.googleusercontent.com/d/1Jj8WdJnHsGuSL3vQXJ8a2vzeC6wcHY7b",
+          "https://lh3.googleusercontent.com/d/148_dsxnm7gI1XqHHI4JEJkM8YEibtHpO",
+          "https://lh3.googleusercontent.com/d/15H8qbEwBdpNkYf3HMBpEBIRzxqPLeI9C"
+        ],
+        description: "Created custom varsity jacket mockup designs for a university student senate. Handled typography placement, patch embroidery details, color scheme selection, and tech-pack mockups to ensure apparel manufacturing.",
+        role: "Graphic Designer, Fashion Designer",
+        year: "Adobe Photoshop",
+        tools: "Custom-made Varsity, Clothing Fashion"
+      },
+      {
+        id: 5,
+        title: "Partama Foundation Logo Design",
+        category: "Logo Design",
+        mainImage: "https://lh3.googleusercontent.com/d/1SCMAeBEKw7LgjC5rzIcFLndED_RhdtXw",
+        gallery: [
+          "https://lh3.googleusercontent.com/d/1UwO6cEOy0kSOTqZzXPmWtFVcZnUUtR_P",
+          "https://lh3.googleusercontent.com/d/18w9EdPJygw4uxbQia-GlFzY1bt-UFACF"
+        ],
+        description: "Developed the core brand identity and logo concept for Partama Foundation, an organization focused on humanitarian empowerment.",
+        role: "Logo Designer",
+        year: "Adobe Illustrator",
+        tools: "Logo Branding, Charity Event"
+      },
+      {
+        id: 6,
+        title: "Street Photography",
+        category: "Photography",
+        mainImage: "https://lh3.googleusercontent.com/d/1h88LQDqRvV1WQ4oP7p91i6-4Wuj6chmI",
+        gallery: [
+          "https://lh3.googleusercontent.com/d/1bln1kI0t1sNGI60M5ki9N_Inc-dS2sbY",
+          "https://lh3.googleusercontent.com/d/1tvE9CKbJYBdu286P4FqBfDwqiB2M8BH_",
+          "https://lh3.googleusercontent.com/d/1QxXAWaMzqk4U9XCQWZTYpm55qUc8qN8u",
+          "https://lh3.googleusercontent.com/d/1UuAXH3lAlf8DikTYkEzoydcz9dcPNoqK",
+          "https://lh3.googleusercontent.com/d/1msGgeHA6dF-X8tfT3trVZl0wFyVClI51"
+        ],
+        description: "Street photography collection capturing candid portraits, architectural contrasts, and spontaneous city moments. Handled on-location shooting, precise composition, exposure balancing, and Adobe Lightroom color grading to create an evocative visual narrative.",
+        role: "Photographer",
+        year: "Adobe Lightroom",
+        tools: "Social Media Content"
+      },
+      {
+        id: 7,
+        title: "Front-End Website Design for Personal Clothing Brand",
+        category: "Web Design",
+        mainImage: "https://lh3.googleusercontent.com/d/1cpN6tlEo0Zh7steyXE_R_lId4Jbhb831",
+        gallery: [
+          "https://lh3.googleusercontent.com/d/1cpN6tlEo0Zh7steyXE_R_lId4Jbhb831",
+          "https://lh3.googleusercontent.com/d/1IUGibKNhI7Xf6C6F5baG77H0AU6bPtK_",
+          "https://lh3.googleusercontent.com/d/1xyRBnMXQDfMdRHjAR6OxTVQvU5_qUq_l",
+          "https://lh3.googleusercontent.com/d/1RoOfsX7Bvsbk6HIFSJECS3DjElm9nm6c",
+          "https://lh3.googleusercontent.com/d/1hbCn5uRJS1EUP146_-aaImLTmQ55k3FE"
+        ],
+        description: "Designed and developed a responsive front-end website for an independent clothing brand using HTML, CSS, and JavaScript. Built clean UI components, smooth micro-interactions, and a modern product showcase optimized for both mobile and desktop browsing.",
+        role: "Web Designer, Front-End Developer",
+        year: "HTML, CSS, JavaScript",
+        tools: "Personal Project"
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function renderSlide(index) {
+      const project = designProjects[index];
+      
+      document.getElementById('slideCategory').textContent = project.category;
+      document.getElementById('slideTitle').textContent = project.title;
+      document.getElementById('slideImg').src = project.mainImage;
+      
+      document.getElementById('currentIdx').textContent = String(index + 1).padStart(2, '0');
+      document.getElementById('totalIdx').textContent = String(designProjects.length).padStart(2, '0');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % designProjects.length;
+      renderSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + designProjects.length) % designProjects.length;
+      renderSlide(currentSlide);
+    }
+
+    // Modal Upwork Detail Handlers
+    function openDesignModal() {
+      const project = designProjects[currentSlide];
+      const modal = document.getElementById('designModal');
+
+      document.getElementById('modalCategoryTag').textContent = project.category;
+      document.getElementById('modalTitleMain').textContent = project.title;
+      document.getElementById('modalDescription').textContent = project.description;
+      document.getElementById('modalRole').textContent = project.role;
+      document.getElementById('modalYear').textContent = project.year;
+      document.getElementById('modalTools').textContent = project.tools;
+
+      const galleryContainer = document.getElementById('modalGallery');
+      galleryContainer.innerHTML = project.gallery.map(imgUrl => `
+        <img src="${imgUrl}" alt="${project.title} Preview" loading="lazy">
+      `).join('');
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDesignModal() {
+      document.getElementById('designModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.id === 'designModal') {
+        closeDesignModal();
+      }
+    }
+
+    // Logika Menu Drawer
+    const menuDrawer = document.getElementById('menuDrawer');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      if (menuDrawer) menuDrawer.classList.add('active');
+      if (menuOverlay) menuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (menuDrawer) menuDrawer.classList.remove('active');
+      if (menuOverlay) menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Navigasi Keyboard (Panah & Escape)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'Escape') {
+        closeDesignModal();
+        closeMenu();
+      }
+    });
+
+    // Inisialisasi awal
+    renderSlide(currentSlide);
+  </script>
+</body>
+</html>

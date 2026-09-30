@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Other Works & Documents — Andi Davalah</title>
+  <link rel="stylesheet" href="style.css?v=14.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8F7F3;
+      color: #111111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .docs-wrapper {
+      padding: 0 36px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Bagian Header Pengantar */
+    .docs-header-intro {
+      margin-top: 12px;
+      margin-bottom: 44px;
+      max-width: 680px;
+    }
+
+    .docs-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .docs-subtitle {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    /* Daftar Dokumen Berbentuk Tombol Interaktif */
+    .docs-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 80px;
+    }
+
+    .doc-btn-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ffffff;
+      border: 1px solid #e7e3da;
+      padding: 20px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #111111;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    /* Efek Saat Disentuh / Hover */
+    .doc-btn-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      border-color: #111111;
+      background-color: #faf9f6;
+    }
+
+    .doc-btn-item:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .doc-left-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .doc-num {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #999999;
+      width: 24px;
+    }
+
+    .doc-name {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #111111;
+    }
+
+    .doc-right-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .doc-badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #767676;
+      background: #f1ede4;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .doc-arrow {
+      font-size: 16px;
+      color: #888888;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .doc-btn-item:hover .doc-arrow {
+      transform: translate(2px, -2px);
+      color: #111111;
+    }
+
+    /* Footer Sederhana */
+    .docs-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #888888;
+    }
+
+    /* Penyesuaian Responsif Mobile */
+    @media (max-width: 650px) {
+      .docs-wrapper {
+        padding: 0 20px;
+      }
+      .doc-btn-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 18px;
+      }
+      .doc-right-info {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .doc-name {
+        font-size: 15px;
+      }
+      .docs-footer {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="docs-wrapper">
+    <!-- Header Standar dengan Menu Drawer -->
+    <header class="portfolio-header">
+      <div class="header-left">
+        <button class="nav-btn" onclick="openMenu()">
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="1" x2="14" y2="1" stroke="#111111" stroke-width="1.5"/>
+            <line y1="5" x2="14" y2="5" stroke="#111111" stroke-width="1.5"/>
+            <line y1="9" x2="14" y2="9" stroke="#111111" stroke-width="1.5"/>
+          </svg>
+          <span>MENU</span>
+        </button>
+        <span class="divider">/</span>
+        <span class="current-page">OTHER WORKS & DOCUMENTS</span>
+      </div>
+      <div class="brand-logo"></div>
+      <div class="header-right"></div>
+    </header>
+
+    <!-- Pengantar Halaman -->
+    <section class="docs-header-intro">
+      <h1 class="docs-title">Documents, Proposals & Selected Content</h1>
+      <p class="docs-subtitle">
+        A repository of pitch decks, scripts, marketing workflows, certificates, and research documents.
+      </p>
+    </section>
+
+    <!-- List Tombol Dokumen -->
+    <main class="docs-list-container">
+      
+      <!-- Tombol 1 -->
+      <a href="https://drive.google.com/file/d/1i0SB8YUEjIgnbiUX6BzV2bdCp1w4LWoh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+          <span class="doc-name">LAindiemovie Production Certificate</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">Workshop / 2026</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Tombol 2 -->
+      <a href="https://drive.google.com/file/d/1Bj9MGuftMdq4cF8lsH-9ATu0FHa9Jltm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+        <span class="doc-name">Short Film Proposal Deck</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">Proposal / 2026</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Tombol 3 -->
+      <a href="https://drive.google.com/file/d/1DDEDv8gpG-J9OokumJE211-S70w5dQ_l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+        <span class="doc-name">Safe Care UGC Video</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">UGC Reels / 2026</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Tombol 4 -->
+      <a href="https://drive.google.com/file/d/1Xb36VXNxr9Mb7S17IWzQufXVi0RPoA0P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+        <span class="doc-name">UGC Content Research & Strategy</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">Research Doc / 2026</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Tombol 5 -->
+      <a href="https://www.instagram.com/reel/DOlWcc6j-jA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+        <span class="doc-name">Moov.id Padel Marketing Reels</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">Reels Content / 2025</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Tombol 6 -->
+      <a href="https://drive.google.com/file/d/1DZwsVOjM8OBmXM73n0H_0uhvDQmAH18P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+        <span class="doc-name">TRANS 7 TV Program Pitch Decks</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">TV Pitch Deck / 2024</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Tombol 7 -->
+      <a href="https://drive.google.com/file/d/104yNz1N4ce8m02Gc4cMeCPlhCztXP5Er/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+        <span class="doc-name">Lapor Pak Built-In Script Writing</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">Internship / 2024</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Tombol 8 -->
+      <a href="https://docs.google.com/spreadsheets/d/1t9R_JRkOkiOKX5W1Q5h-cQa6wGC04Tn8/edit?usp=sharing&ouid=108978754058608842218&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+        <!--  <span class="doc-num">01</span> -->
+        <span class="doc-name">Content Calendar & Distribution Plan</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">Marketing Plan / 2022</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+    </main>
+
+    <!-- Footer Bawah -->
+    <footer class="docs-footer">
+      <div>© 2026 Andi Davalah. Selected Documents & Archives.</div>
+      <div></div>
+    </footer>
+  </div>
+
+  <!-- Menu Drawer & Overlay -->
+  <div class="drawer-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+  
+  <div class="sliding-drawer" id="menuDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">Menu & Archive</span>
+      <button class="drawer-close-btn" onclick="closeMenu()">×</button>
+    </div>
+
+    <div class="drawer-content">
+        <ul class="drawer-nav-list">
+          <li class="drawer-nav-item">
+            <a href="index.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 22px !important; font-weight: 800 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+              Home <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+            </a>
+          </li>
+          <li class="drawer-nav-item">
+            <a href="films.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;" onclick="closeMenu()">
+              Videography & Films <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+            </a>
+          </li>
+          <li class="drawer-nav-item">
+            <a href="design.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+              Design & Branding <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+            </a>
+          </li>
+          <li class="drawer-nav-item">
+            <a href="process.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+              Process & Archives <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+            </a>
+          </li>
+          <li class="drawer-nav-item">
+            <a href="other-works.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+              Other Works & Documents <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+            </a>
+          </li>
+          <li class="drawer-nav-item">
+            <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+              Contact <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+  <script>
+    const menuDrawer = document.getElementById('menuDrawer');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      if (menuDrawer) menuDrawer.classList.add('active');
+      if (menuOverlay) menuOverlay.classList.add('active');
+    }
+
+    function closeMenu() {
+      if (menuDrawer) menuDrawer.classList.remove('active');
+      if (menuOverlay) menuOverlay.classList.remove('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
+</body>
+</html>

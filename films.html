@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videography & Films — Andi Davalah</title>
+  <link rel="stylesheet" href="style.css?v=15.0">
+</head>
+<body>
+
+  <div class="portfolio-wrapper">
+    <header class="portfolio-header">
+      <div class="header-left">
+        <button class="nav-btn" onclick="openMenu()">
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="1" x2="14" y2="1" stroke="#111111" stroke-width="1.5"/>
+            <line y1="5" x2="14" y2="5" stroke="#111111" stroke-width="1.5"/>
+            <line y1="9" x2="14" y2="9" stroke="#111111" stroke-width="1.5"/>
+          </svg>
+          <span>MENU</span>
+        </button>
+        <span class="divider">/</span>
+        <span class="current-page">VIDEOGRAPHY & FILMS</span>
+      </div>
+      <div class="brand-logo"></div>
+      <div class="header-right"></div>
+    </header>
+
+    <main class="gallery-grid" id="portfolio-grid"></main>
+
+    <footer class="portfolio-footer">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-bio-title">ANDI ALFABIANO DAVALAH</div>
+          <p class="footer-bio-desc">
+            Filmmaker, Content Creator, skilled in Creative Production, Content Writing, Marketing, and Research. Proficient in using various digital tools and platforms to develop, manage, and analyze content strategies. Open for directorial collaborations, and any production projects.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-header">Get In Touch</div>
+          <ul class="footer-link-list">
+            <li><a href="mailto:andidavalah@gmail.com">andidavalah@gmail.com ↗</a></li>
+            <li><a href="https://wa.me/6285173470104" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-header">Online Presence</div>
+          <ul class="footer-link-list">
+            <li><a href="https://www.linkedin.com/in/andialfabiano" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+            <li><a href="https://www.instagram.com/andialfabiano" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+            <li><a href="https://letterboxd.com/Davalah" target="_blank" rel="noopener noreferrer">Letterboxd ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Andi Davalah. All rights reserved.</div>
+        <div>Based in Bandung, West Java, Indonesia</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Menu Drawer & Overlay (Sama Persis dengan other-works.html) -->
+  <div class="drawer-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+  
+  <div class="sliding-drawer" id="menuDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">Menu & Archive</span>
+      <button class="drawer-close-btn" onclick="closeMenu()">×</button>
+    </div>
+
+    <div class="drawer-content">
+      <ul class="drawer-nav-list">
+        <li class="drawer-nav-item">
+          <a href="index.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 22px !important; font-weight: 800 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Home <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="films.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;" onclick="closeMenu()">
+            Videography & Films <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="design.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Design & Branding <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="process.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Process & Archives <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="other-works.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Other Works & Documents <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Contact <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+      </ul>
+
+      
+    </div>
+  </div>
+
+  <!-- Pop-up Modal Detail Proyek -->
+  <div class="modal-backdrop" id="projectModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      
+      <a href="#" id="modalVideoLink" target="_blank" rel="noopener noreferrer" class="modal-video-link">
+        <img id="modalVideoImg" src="" alt="Thumbnail Video">
+        <div class="play-button-overlay">
+          <div class="play-icon"></div>
+          <span class="play-text">Click to Watch</span>
+        </div>
+      </a>
+
+      <div class="modal-body">
+        <div>
+          <h2 class="modal-main-title" id="modalTitle"></h2>
+          <div class="modal-sub" id="modalYear"></div>
+          
+          <div class="modal-synopsis-label">Sinopsis</div>
+          <p class="modal-synopsis" id="modalSynopsis"></p>
+        </div>
+
+        <div class="modal-meta-sidebar">
+          <div class="modal-meta-row" id="modalWrittenRow">
+            <div class="modal-meta-label">Written & Directed By</div>
+            <div class="modal-meta-val" id="modalWritten"></div>
+          </div>
+          <div class="modal-meta-row" id="modalGenreRow">
+            <div class="modal-meta-label">Genre</div>
+            <div class="modal-meta-val" id="modalGenre"></div>
+          </div>
+          <div class="modal-meta-row" id="modalDurationRow">
+            <div class="modal-meta-label">Duration</div>
+            <div class="modal-meta-val" id="modalDuration"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
