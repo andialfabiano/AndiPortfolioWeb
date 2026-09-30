@@ -101,7 +101,7 @@ const projects = [
   },
 ];
 
-// Render portofolio grid
+// Render portofolio grid[cite: 6]
 const container = document.getElementById('portfolio-grid');
 if (container) {
   container.innerHTML = projects.map(item => `
@@ -140,22 +140,61 @@ if (container) {
   `).join('');
 }
 
-// Menu Drawer
+// Menu Drawer[cite: 6]
 const menuDrawer = document.getElementById('menuDrawer');
 const menuOverlay = document.getElementById('menuOverlay');
 
 function openMenu() {
   if (menuDrawer) menuDrawer.classList.add('active');
   if (menuOverlay) menuOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
   if (menuDrawer) menuDrawer.classList.remove('active');
   if (menuOverlay) menuOverlay.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
-// Modal Pop-up Proyek
+// Konversi Otomatis Link Video menjadi Format Embed Player
+function getEmbedUrl(url) {
+  if (!url) return '';
+
+  // Google Drive Video
+  if (url.includes('drive.google.com')) {
+    const driveMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (driveMatch && driveMatch[1]) {
+      return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+    }
+  }
+
+  // Ekstraksi ID YouTube baik dari format watch?v= maupun youtu.be/
+  let ytId = '';
+  if (url.includes('youtube.com/watch')) {
+    const ytMatch = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+    if (ytMatch && ytMatch[1]) ytId = ytMatch[1];
+  } else if (url.includes('youtu.be/')) {
+    const ytShortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+    if (ytShortMatch && ytShortMatch[1]) ytId = ytShortMatch[1];
+  }
+
+  // Jika terdeteksi link YouTube, gunakan format embed resmi tanpa parameter yang memicu restriksi
+  if (ytId) {
+    return `https://www.youtube.com/embed/${ytId}?rel=0&enablejsapi=1`;
+  }
+
+  // Instagram Reels
+  if (url.includes('instagram.com/p/') || url.includes('instagram.com/reel/')) {
+    const cleanUrl = url.split('?')[0].replace(/\/$/, '');
+    return `${cleanUrl}/embed`;
+  }
+
+  return url;
+}
+
+// Modal Pop-up Proyek dengan Video Langsung
 const modal = document.getElementById('projectModal');
+const videoPlayerContainer = document.getElementById('modalVideoPlayer');
 
 function openModal(id) {
   const project = projects.find(p => p.id === id);
@@ -164,11 +203,26 @@ function openModal(id) {
   document.getElementById('modalTitle').innerText = project.title;
   document.getElementById('modalYear').innerText = project.year;
   document.getElementById('modalSynopsis').innerText = project.synopsis || 'Sinopsis belum ditambahkan.';
-  document.getElementById('modalVideoImg').src = project.image;
-  document.getElementById('modalVideoLink').href = project.videoLink || '#';
   document.getElementById('modalWritten').innerText = project.written || '-';
   document.getElementById('modalGenre').innerText = project.genre || '-';
   document.getElementById('modalDuration').innerText = project.duration || '-';
+
+  // Embed video player ke dalam modal
+  const embedUrl = getEmbedUrl(project.videoLink);
+  if (videoPlayerContainer) {
+    if (embedUrl) {
+      videoPlayerContainer.innerHTML = `
+        <iframe 
+          src="${embedUrl}" 
+          referrerpolicy="origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      `;
+    } else {
+      videoPlayerContainer.innerHTML = '';
+    }
+  }
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -178,6 +232,10 @@ function closeModal() {
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    // Menghapus iframe agar suara/video langsung mati saat modal ditutup
+    if (videoPlayerContainer) {
+      videoPlayerContainer.innerHTML = '';
+    }
   }
 }
 
@@ -187,7 +245,7 @@ function closeModalOnBackdrop(e) {
   }
 }
 
-// ESC Key Listener
+// ESC Key Listener[cite: 6]
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeModal();
