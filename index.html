@@ -3,183 +3,350 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Andi Davalah</title>
-  <link rel="stylesheet" href="style.css?v=6.0">
+  <title>Andi Davalah's Portfolio</title>
+  <link rel="stylesheet" href="style.css?v=10.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      background-color: #F8F7F3;
+      color: #111111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Wrapper utama dinaikkan z-index-nya agar selalu berada di atas background */
+    .landing-wrapper {
+      padding: 0 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10; /* KUNCI: Menjamin tombol link tidak tertutup lapisan apapun */
+    }
+
+    /* Header Ringkas */
+    .landing-header {
+      padding: 36px 0;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #777777;
+    }
+
+    /* Stage Tengah */
+    .landing-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 0;
+      width: 100%;
+    }
+
+    /* Judul Sejajar Satu Baris */
+    .landing-headline {
+      font-size: clamp(24px, 3.4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 48px;
+      color: #111111;
+      white-space: nowrap;
+    }
+
+    /* Container Menu Navigasi */
+    .landing-nav-container {
+      width: 100%;
+      max-width: 440px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .landing-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    /* Baris Menu */
+    .landing-nav-item {
+      width: 100%;
+      border-top: 1.5px solid #4a4a4a;
+    }
+
+    .landing-nav-item:last-child {
+      border-bottom: 1.5px solid #4a4a4a;
+    }
+
+    .landing-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      color: #1a1a1a !important;
+      cursor: pointer; /* Memastikan kursor tangan muncul */
+      transition: opacity 0.2s ease;
+      width: 100%;
+    }
+
+    /* Elemen Panah */
+    .landing-nav-link .nav-arrow {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 400;
+      color: #888888;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+      will-change: transform;
+    }
+
+    /* Efek Interaksi / Hover: Teks meredup halus & panah maju ke kanan */
+    .landing-nav-link:hover {
+      opacity: 0.6;
+    }
+
+    .landing-nav-link:hover .nav-arrow {
+      color: #111111;
+      transform: translateX(6px); /* Panah bergerak ke kanan sejauh 6px */
+    }
+
+    /* Footer Bawah */
+    .landing-footer {
+      padding: 28px 0;
+      text-align: center;
+      font-size: 12px;
+      color: #888888;
+      letter-spacing: 0.03em;
+    }
+
+    /* ================================================= */
+    /* ELEMEN PENGHIAS KIRI & KANAN                      */
+    /* ================================================= */
+    .bg-decorations {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none !important; /* KUNCI: Menolak klik agar tembus ke menu */
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .bg-decorations * {
+      pointer-events: none !important; /* Menjamin semua anak elemen tidak menangkap sentuhan */
+    }
+
+    /* Sisi Kiri */
+    .decor-left {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .decor-circle-lg {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 0, 0, 0.12);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .decor-circle-lg::after {
+      content: "";
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .decor-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #a09d94;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* Sisi Kanan */
+    .decor-right {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .decor-circle-dual {
+      position: relative;
+      width: 110px;
+      height: 110px;
+    }
+
+    .dual-outer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+    }
+
+    .dual-inner {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 0, 0, 0.14);
+    }
+
+    /* Viewfinder Corners */
+    .decor-corner-tl {
+      position: absolute;
+      top: 70px;
+      left: 70px;
+      width: 18px;
+      height: 18px;
+      border-top: 1.5px solid rgba(0, 0, 0, 0.15);
+      border-left: 1.5px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .decor-corner-br {
+      position: absolute;
+      bottom: 70px;
+      right: 70px;
+      width: 18px;
+      height: 18px;
+      border-bottom: 1.5px solid rgba(0, 0, 0, 0.15);
+      border-right: 1.5px solid rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 900px) {
+      .decor-left, .decor-right, .decor-corner-tl, .decor-corner-br {
+        display: none;
+      }
+      .landing-headline {
+        white-space: normal;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="portfolio-wrapper">
-    <header class="portfolio-header">
-      <div class="header-left">
-        <button class="nav-btn" onclick="openMenu()">
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line y1="1" x2="14" y2="1" stroke="#111111" stroke-width="1.5"/>
-            <line y1="5" x2="14" y2="5" stroke="#111111" stroke-width="1.5"/>
-            <line y1="9" x2="14" y2="9" stroke="#111111" stroke-width="1.5"/>
-          </svg>
-          <span>MENU</span>
-        </button>
-        <span class="divider">/</span>
-        <span class="current-page">ANDI DAVALAH'S PORTFOLIO</span>
+  <!-- Background Accents (pointer-events dimatikan total agar tidak mengganggu klik) -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="decor-corner-tl"></div>
+    <div class="decor-corner-br"></div>
+
+    <div class="decor-left">
+      <div class="decor-circle-lg"></div>
+      <div class="decor-label"></div>
+    </div>
+
+    <div class="decor-right">
+      <div class="decor-label"></div>
+      <div class="decor-circle-dual">
+        <div class="dual-outer"></div>
+        <div class="dual-inner"></div>
       </div>
-      <div class="brand-logo"></div>
-      <div class="header-right"></div>
+    </div>
+  </div> 
+
+  <div class="landing-wrapper">
+    <header class="landing-header">
+      Andi Davalah's Portfolio
     </header>
 
-    <main class="gallery-grid" id="portfolio-grid"></main>
+    <main class="landing-center">
+      <h1 class="landing-headline">
+        Welcome to Andi Davalah's Website
+      </h1>
 
-    <footer class="portfolio-footer">
-      <div class="footer-top">
-        <div class="footer-col">
-          <div class="footer-bio-title">ANDI ALFABIANO DAVALAH</div>
-          <p class="footer-bio-desc">
-            Filmmaker, Content Creator, skilled in Creative Production, Content Writing, Marketing, and Research. Proficient in using various digital tools and platforms to develop, manage, and analyze content strategies. Open for directorial collaborations, and any production projects.
-          </p>
-        </div>
+      <nav class="landing-nav-container">
+        <ul class="landing-nav-list">
+          <li class="landing-nav-item">
+            <a href="films.html" class="landing-nav-link">
+              <span>Videography & Films</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          </li>
+          <li class="landing-nav-item">
+            <a href="design.html" class="landing-nav-link">
+              <span>Design & Branding</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          </li>
+          <li class="landing-nav-item">
+            <a href="process.html" class="landing-nav-link">
+              <span>Process & Archives</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          </li>
+          <li class="landing-nav-item">
+            <a href="other-works.html" class="landing-nav-link">
+              <span>Other Works & Documents</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          </li>
+          <li class="landing-nav-item">
+            <a href="contact.html" class="landing-nav-link">
+              <span>Contact</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
 
-        <div class="footer-col">
-          <div class="footer-col-header">Get In Touch</div>
-          <ul class="footer-link-list">
-            <li><a href="mailto:andidavalah@gmail.com">andidavalah@gmail.com ↗</a></li>
-            <li><a href="https://wa.me/6285173470104" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <div class="footer-col-header">Online Presence</div>
-          <ul class="footer-link-list">
-            <li><a href="https://www.linkedin.com/in/andialfabiano" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
-            <li><a href="https://www.instagram.com/andialfabiano" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
-            <li><a href="https://letterboxd.com/Davalah" target="_blank" rel="noopener noreferrer">Letterboxd ↗</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 Andi Davalah. All rights reserved.</div>
-        <div>Based in Bandung, West Java, Indonesia</div>
-      </div>
+    <footer class="landing-footer">
+      © 2026 Andi Davalah. Selected Works & Archives.
     </footer>
   </div>
 
-  <!-- Menu Drawer & Overlay Terpisah Rapi -->
-  <div class="drawer-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-  
-  <div class="sliding-drawer" id="menuDrawer">
-    <div class="drawer-header">
-      <span class="drawer-brand">Menu & Archive</span>
-      <button class="drawer-close-btn" onclick="closeMenu()">×</button>
-    </div>
-
-    <div class="drawer-content">
-     <ul class="drawer-nav-list">
-  <li class="drawer-nav-item">
-    <a href="process.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 22px !important; font-weight: 800 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;" onclick="closeMenu()">
-      The Process & Archive <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
-    </a>
-  </li>
-  <li class="drawer-nav-item">
-    <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 22px !important; font-weight: 800 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
-      Contact <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
-    </a>
-  </li>
-</ul>
-      <div class="drawer-section-title">
-        <span>Other Works & Archives</span>
-      </div>
-      <ul class="other-porto-list">
-        <li class="other-porto-item">
-          <a href="https://drive.google.com/file/d/1i0SB8YUEjIgnbiUX6BzV2bdCp1w4LWoh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">LAindiemovie Production Certificate</span>
-            <span class="other-porto-category">Workshop / 2026</span>
-          </a>
-        </li>
-        <li class="other-porto-item">
-          <a href="https://drive.google.com/file/d/1Bj9MGuftMdq4cF8lsH-9ATu0FHa9Jltm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">Short Film Proposal Deck</span>
-            <span class="other-porto-category">Proposal / 2026</span>
-          </a>
-        </li>
-        <li class="other-porto-item">
-          <a href="https://drive.google.com/file/d/1DDEDv8gpG-J9OokumJE211-S70w5dQ_l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">Safe Care UGC</span>
-            <span class="other-porto-category">UGC Reels Content / 2026</span>
-          </a>
-        </li>
-        <li class="other-porto-item">
-          <a href="https://drive.google.com/file/d/1Xb36VXNxr9Mb7S17IWzQufXVi0RPoA0P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">UGC Content Research</span>
-            <span class="other-porto-category">Research Doc / 2026</span>
-          </a>
-        </li>
-        <li class="other-porto-item">
-          <a href="https://www.instagram.com/reel/DOlWcc6j-jA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">Moov.id Padel Content</span>
-            <span class="other-porto-category">Reels Content / 2025</span>
-          </a>
-        </li>
-         <li class="other-porto-item">
-          <a href="https://drive.google.com/file/d/1DZwsVOjM8OBmXM73n0H_0uhvDQmAH18P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">TRANS 7 TV Program</span>
-            <span class="other-porto-category">Pitch Decks / 2024</span>
-          </a>
-        </li>
-        <li class="other-porto-item">
-          <a href="https://drive.google.com/file/d/104yNz1N4ce8m02Gc4cMeCPlhCztXP5Er/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">Lapor Pak Built In Script</span>
-            <span class="other-porto-category">Internship / 2024</span>
-          </a>
-        </li>
-        <li class="other-porto-item">
-          <a href="https://docs.google.com/spreadsheets/d/1t9R_JRkOkiOKX5W1Q5h-cQa6wGC04Tn8/edit?usp=sharing&ouid=108978754058608842218&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="other-porto-link">
-            <span class="other-porto-name">Content Calendar/Planning</span>
-            <span class="other-porto-category">Digital Marketing Course / 2022</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Pop-up Modal Detail Proyek -->
-  <div class="modal-backdrop" id="projectModal" onclick="closeModalOnBackdrop(event)">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      
-      <a href="#" id="modalVideoLink" target="_blank" rel="noopener noreferrer" class="modal-video-link">
-        <img id="modalVideoImg" src="" alt="Thumbnail Video">
-        <div class="play-button-overlay">
-          <div class="play-icon"></div>
-          <span class="play-text">Click to Watch</span>
-        </div>
-      </a>
-
-      <div class="modal-body">
-        <div>
-          <h2 class="modal-main-title" id="modalTitle"></h2>
-          <div class="modal-sub" id="modalYear"></div>
-          
-          <div class="modal-synopsis-label">Sinopsis</div>
-          <p class="modal-synopsis" id="modalSynopsis"></p>
-        </div>
-
-        <div class="modal-meta-sidebar">
-          <div class="modal-meta-row" id="modalWrittenRow">
-            <div class="modal-meta-label">Written & Directed By</div>
-            <div class="modal-meta-val" id="modalWritten"></div>
-          </div>
-          <div class="modal-meta-row" id="modalGenreRow">
-            <div class="modal-meta-label">Genre</div>
-            <div class="modal-meta-val" id="modalGenre"></div>
-          </div>
-          <div class="modal-meta-row" id="modalDurationRow">
-            <div class="modal-meta-label">Duration</div>
-            <div class="modal-meta-val" id="modalDuration"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
