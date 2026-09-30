@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Process — Andi Davalah</title>
   
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=17.0">
   <style>
     /* Styling Halaman Process & Archive */
     .process-intro {
@@ -122,10 +122,17 @@
 <body>
 
   <div class="portfolio-wrapper">
-    <!-- Header dengan Tombol Back -->
+    <!-- Header Standar dengan Tombol MENU -->
     <header class="portfolio-header">
       <div class="header-left">
-        <a href="index.html" class="nav-btn" style="text-decoration:none; color:inherit;">← BACK</a>
+        <button class="nav-btn" onclick="openMenu()">
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="1" x2="14" y2="1" stroke="#111111" stroke-width="1.5"/>
+            <line y1="5" x2="14" y2="5" stroke="#111111" stroke-width="1.5"/>
+            <line y1="9" x2="14" y2="9" stroke="#111111" stroke-width="1.5"/>
+          </svg>
+          <span>MENU</span>
+        </button>
         <span class="divider">/</span>
         <span class="current-page">THE PROCESS & ARCHIVE</span>
       </div>
@@ -155,7 +162,8 @@
             <span>Abed's Journey — Feature Film</span>
           </div>
           <p class="process-note">
-            Here, I am directing a scene where little kids are riding bikes and having fun. The difficulty lies in the children who are too busy playing, which I handle well by giving them personal direction.          </p>
+            Here, I am directing a scene where little kids are riding bikes and having fun. The difficulty lies in the children who are too busy playing, which I handle well by giving them personal direction.
+          </p>
         </div>
       </div>
 
@@ -224,20 +232,20 @@
       </div>
 
       <!-- Item 6: Wardrobe & Fitting -->
-  <div class="process-card">
-    <div class="process-img-box aspect-3-4">
-      <img src="https://lh3.googleusercontent.com/d/1sObsjuE8x9oOWLRZa-QHGdbf-1bSaRKD" alt="Costume fitting">
-    </div>
-    <div class="process-caption">
-      <div class="process-meta">
-        <span>Screening</span>
-        <span>Abed's Journey — Feature Film</span>
+      <div class="process-card">
+        <div class="process-img-box aspect-3-4">
+          <img src="https://lh3.googleusercontent.com/d/1sObsjuE8x9oOWLRZa-QHGdbf-1bSaRKD" alt="Costume fitting">
+        </div>
+        <div class="process-caption">
+          <div class="process-meta">
+            <span>Screening</span>
+            <span>Abed's Journey — Feature Film</span>
+          </div>
+          <p class="process-note">
+            It felt amazing to see my own name on the big cinema screen and to be watched by over 500 people who had paid for tickets. It was an unforgettable moment.
+          </p>
+        </div>
       </div>
-      <p class="process-note">
-        It felt amazing to see my own name on the big cinema screen and to be watched by over 500 people who had paid for tickets. It was an unforgettable moment.
-      </p>
-    </div>
-  </div>
 
       <!-- Item 7: Location Scouting (Recce) -->
       <div class="process-card">
@@ -346,5 +354,71 @@
     </footer>
   </div>
 
+  <!-- Menu Drawer & Overlay (Sama Persis dengan other-works.html) -->
+  <div class="drawer-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+  
+  <div class="sliding-drawer" id="menuDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">Menu & Archive</span>
+      <button class="drawer-close-btn" onclick="closeMenu()">×</button>
+    </div>
+
+    <div class="drawer-content">
+      <ul class="drawer-nav-list">
+        <li class="drawer-nav-item">
+          <a href="index.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 22px !important; font-weight: 800 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Home <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="films.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;" onclick="closeMenu()">
+            Videography & Films <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="design.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Design & Branding <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="process.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Process & Archives <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="other-works.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Other Works & Documents <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            Contact <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <script>
+    const menuDrawer = document.getElementById('menuDrawer');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      if (menuDrawer) menuDrawer.classList.add('active');
+      if (menuOverlay) menuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (menuDrawer) menuDrawer.classList.remove('active');
+      if (menuOverlay) menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
 </body>
 </html>
