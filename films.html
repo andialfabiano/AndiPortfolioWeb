@@ -4,7 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Videography & Films — Andi Davalah</title>
-  <link rel="stylesheet" href="style.css?v=15.0">
+  <link rel="stylesheet" href="style.css?v=20.0">
+  <style>
+    /* Wadah Video Player di dalam Pop-Up Modal */
+    .modal-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #000000;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-video-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
@@ -62,7 +84,7 @@
     </footer>
   </div>
 
-  <!-- Menu Drawer & Overlay (Sama Persis dengan other-works.html) -->
+  <!-- Menu Drawer & Overlay -->
   <div class="drawer-overlay" id="menuOverlay" onclick="closeMenu()"></div>
   
   <div class="sliding-drawer" id="menuDrawer">
@@ -99,28 +121,21 @@
           </a>
         </li>
         <li class="drawer-nav-item">
-          <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+          <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
             Contact <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
           </a>
         </li>
       </ul>
-
-      
     </div>
   </div>
 
-  <!-- Pop-up Modal Detail Proyek -->
+  <!-- Pop-up Modal Detail Proyek dengan Video Embed -->
   <div class="modal-backdrop" id="projectModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()">×</button>
       
-      <a href="#" id="modalVideoLink" target="_blank" rel="noopener noreferrer" class="modal-video-link">
-        <img id="modalVideoImg" src="" alt="Thumbnail Video">
-        <div class="play-button-overlay">
-          <div class="play-icon"></div>
-          <span class="play-text">Click to Watch</span>
-        </div>
-      </a>
+      <!-- Video Player Embed Langsung -->
+      <div class="modal-video-frame" id="modalVideoPlayer"></div>
 
       <div class="modal-body">
         <div>
