@@ -15,7 +15,7 @@ const projects = [
     id: 2,
     year: 'Feature Film - 2026',
     title: "Abed's Journey",
-    image: 'https://lh3.googleusercontent.com/d/1sVS6F4ld53sQ7ORQkFM1RW5i8IWc8_5t',
+    image: 'https://lh3.googleusercontent.com/d/1kCQClzSMdKBmcQV2-al8AEYmrU0YAUwc',
     videoLink: 'https://drive.google.com/file/d/16faEqDVqURsxS8pRskSrRUA6xh4G5rf1/view',
     written: 'Andi Davalah',
     genre: 'Musical, Drama, Comedy',
@@ -38,7 +38,7 @@ const projects = [
     year: 'Reels Content - 2026',
     title: 'The Terrified Story of an Electrician',
     image: 'https://lh3.googleusercontent.com/d/1_Upd7JU5H1INiYc0gYTmJkUOF-1c6H2H',
-    videoLink: 'https://www.instagram.com/p/DbDjhOSzgu5/',
+    videoLink: 'https://drive.google.com/file/d/1t1YkVg4PrDJ7WGtxNDkCEhmfYSKAgG7W/view',
     written: 'Andi Davalah',
     genre: 'Horror, Comedy',
     duration: '3 minutes',
@@ -49,7 +49,7 @@ const projects = [
     year: 'Short Film - 2025',
     title: 'Kucing dalam Karung',
     image: 'https://lh3.googleusercontent.com/d/1F-x-8WnkLed3WGx3ZwgjwIWXmEsX6tlE',
-    videoLink: 'https://youtu.be/-xPfw8miaY4',
+    videoLink: 'https://drive.google.com/file/d/1MzBh8FWladR1saWj93auGqbZahdIXVbr/view?usp=drive_link',
     written: 'Andi Davalah',
     genre: 'Drama',
     duration: '5 Minutes',
@@ -59,8 +59,8 @@ const projects = [
     id: 6,
     year: 'Short Film - 2024',
     title: 'Hipokrit',
-    image: 'https://lh3.googleusercontent.com/d/1h8BQeT11J_NYMSxFPf8HbFq0FmCUeKWw',
-    videoLink: 'https://youtu.be/uohkNCb4t4Y',
+    image: 'https://lh3.googleusercontent.com/d/1BC8nrTbdt-ollUNlO5odpk5nvzSbvUBL',
+    videoLink: 'https://drive.google.com/file/d/1zAwvhL7j18ZVmCTyAICZaItNsvYYiqR6/view?usp=sharing',
     written: 'Andi Davalah',
     genre: 'Socio-Critic, Comedy, Satire',
     duration: '10 Minutes',
@@ -82,7 +82,7 @@ const projects = [
     year: 'Ads Content Video - 2024',
     title: 'Manajeri-in Aja!',
     image: 'https://lh3.googleusercontent.com/d/1NPEhZh7DmFPGklzKtRsVnlB4-HqVJiYE',
-    videoLink: 'https://www.youtube.com/watch?v=gEnT2aiAxKY',
+    videoLink: 'https://drive.google.com/file/d/1p_psUxUzOy2OIaVmZPqzePJhW2PxDM01/view?usp=drive_link',
     written: 'Andi Davalah',
     genre: 'Comedy',
     duration: '1 Minutes',
@@ -101,7 +101,7 @@ const projects = [
   },
 ];
 
-// Render portofolio grid[cite: 6]
+// Render portofolio grid
 const container = document.getElementById('portfolio-grid');
 if (container) {
   container.innerHTML = projects.map(item => `
@@ -140,7 +140,7 @@ if (container) {
   `).join('');
 }
 
-// Menu Drawer[cite: 6]
+// Menu Drawer
 const menuDrawer = document.getElementById('menuDrawer');
 const menuOverlay = document.getElementById('menuOverlay');
 
@@ -156,11 +156,10 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
-// Konversi Otomatis Link Video menjadi Format Embed Player
+// Format Embed URL Desktop
 function getEmbedUrl(url) {
   if (!url) return '';
 
-  // Google Drive Video
   if (url.includes('drive.google.com')) {
     const driveMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
     if (driveMatch && driveMatch[1]) {
@@ -168,7 +167,6 @@ function getEmbedUrl(url) {
     }
   }
 
-  // Ekstraksi ID YouTube baik dari format watch?v= maupun youtu.be/
   let ytId = '';
   if (url.includes('youtube.com/watch')) {
     const ytMatch = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
@@ -178,12 +176,10 @@ function getEmbedUrl(url) {
     if (ytShortMatch && ytShortMatch[1]) ytId = ytShortMatch[1];
   }
 
-  // Jika terdeteksi link YouTube, gunakan format embed resmi tanpa parameter yang memicu restriksi
   if (ytId) {
-    return `https://www.youtube.com/embed/${ytId}?rel=0&enablejsapi=1`;
+    return `https://www.youtube-nocookie.com/embed/${ytId}?rel=0&modestbranding=1`;
   }
 
-  // Instagram Reels
   if (url.includes('instagram.com/p/') || url.includes('instagram.com/reel/')) {
     const cleanUrl = url.split('?')[0].replace(/\/$/, '');
     return `${cleanUrl}/embed`;
@@ -192,9 +188,9 @@ function getEmbedUrl(url) {
   return url;
 }
 
-// Modal Pop-up Proyek dengan Video Langsung
+// Modal Pop-up Proyek (Adaptif: Desktop = Embed Langsung, HP = Link Tab Baru)
 const modal = document.getElementById('projectModal');
-const videoPlayerContainer = document.getElementById('modalVideoPlayer');
+const mediaContainer = document.getElementById('modalMediaContainer');
 
 function openModal(id) {
   const project = projects.find(p => p.id === id);
@@ -207,20 +203,35 @@ function openModal(id) {
   document.getElementById('modalGenre').innerText = project.genre || '-';
   document.getElementById('modalDuration').innerText = project.duration || '-';
 
-  // Embed video player ke dalam modal
-  const embedUrl = getEmbedUrl(project.videoLink);
-  if (videoPlayerContainer) {
-    if (embedUrl) {
-      videoPlayerContainer.innerHTML = `
-        <iframe 
-          src="${embedUrl}" 
-          referrerpolicy="origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-        </iframe>
+  if (mediaContainer) {
+    // Deteksi jika dibuka dari layar handphone (lebar <= 768px)
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      // TAMPILAN HP: Gambar Thumbnail + Tombol Buka Video di Tab Baru
+      mediaContainer.innerHTML = `
+        <a href="${project.videoLink}" target="_blank" rel="noopener noreferrer" class="modal-mobile-link">
+          <img src="${project.image}" alt="${project.title}">
+          <div class="mobile-play-btn">
+            <span>▶ Play Video</span>
+          </div>
+        </a>
       `;
     } else {
-      videoPlayerContainer.innerHTML = '';
+      // TAMPILAN DESKTOP: Langsung putar video di dalam web lewat iframe
+      const embedUrl = getEmbedUrl(project.videoLink);
+      if (embedUrl) {
+        mediaContainer.innerHTML = `
+          <iframe 
+            src="${embedUrl}" 
+            title="${project.title}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        `;
+      } else {
+        mediaContainer.innerHTML = '';
+      }
     }
   }
 
@@ -232,9 +243,8 @@ function closeModal() {
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    // Menghapus iframe agar suara/video langsung mati saat modal ditutup
-    if (videoPlayerContainer) {
-      videoPlayerContainer.innerHTML = '';
+    if (mediaContainer) {
+      mediaContainer.innerHTML = '';
     }
   }
 }
@@ -245,7 +255,7 @@ function closeModalOnBackdrop(e) {
   }
 }
 
-// ESC Key Listener[cite: 6]
+// ESC Key Listener
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeModal();
