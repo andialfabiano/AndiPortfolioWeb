@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Videography & Films — Andi Davalah</title>
-  <link rel="stylesheet" href="style.css?v=20.0">
+  <link rel="stylesheet" href="style.css?v=22.0">
   <style>
-    /* Wadah Video Player di dalam Pop-Up Modal */
-    .modal-video-frame {
+    /* Wadah Video / Media Modal */
+    .modal-media-frame {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       background-color: #000000;
       margin-bottom: 24px;
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .modal-video-frame iframe {
+    .modal-media-frame iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -25,6 +25,43 @@
       height: 100%;
       border: 0;
       display: block;
+    }
+
+    /* Thumbnail Link Khusus Mobile */
+    .modal-mobile-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .modal-mobile-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+      display: block;
+    }
+
+    .mobile-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(17, 17, 17, 0.85);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
@@ -129,13 +166,13 @@
     </div>
   </div>
 
-  <!-- Pop-up Modal Detail Proyek dengan Video Embed -->
+  <!-- Pop-up Modal Detail Proyek -->
   <div class="modal-backdrop" id="projectModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()">×</button>
       
-      <!-- Video Player Embed Langsung -->
-      <div class="modal-video-frame" id="modalVideoPlayer"></div>
+      <!-- Wadah Media Dinamis (Embed di Desktop / Link di HP) -->
+      <div class="modal-media-frame" id="modalMediaContainer"></div>
 
       <div class="modal-body">
         <div>
