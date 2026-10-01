@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Design & Branding — Andi Davalah</title>
-  <link rel="stylesheet" href="style.css?v=18.0">
+  <link rel="stylesheet" href="style.css?v=26.0">
   <style>
     * {
       box-sizing: border-box;
@@ -20,7 +20,7 @@
       overflow-x: hidden;
     }
 
-    /* Container Halaman (Scrollable) */
+    /* Container Halaman */
     .design-page-wrapper {
       padding: 0 48px;
       max-width: 1440px;
@@ -31,7 +31,7 @@
       min-height: 100vh;
     }
 
-    /* Header Navigasi Konsisten */
+    /* Header Navigasi */
     .showcase-header {
       position: sticky;
       top: 0;
@@ -48,7 +48,8 @@
       max-width: 1300px;
       width: 100%;
       margin: 0 auto;
-      padding: 40px 0 80px 0;
+      padding: 30px 0 20px 0;
+      flex: 1;
     }
 
     .stage-content-row {
@@ -59,7 +60,7 @@
       width: 100%;
     }
 
-    /* Informasi Teks Proyek */
+    /* Informasi Teks Proyek (Kiri) */
     .project-info-panel {
       flex: 1;
       max-width: 480px;
@@ -75,11 +76,11 @@
     }
 
     .project-hero-title {
-      font-size: clamp(34px, 4.5vw, 60px);
+      font-size: clamp(32px, 4.2vw, 56px);
       font-weight: 800;
       line-height: 1.05;
       letter-spacing: -0.03em;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       color: #111111;
     }
 
@@ -105,23 +106,30 @@
       transform: translateY(-2px);
     }
 
-    /* Visual Mockup Card */
+    /* Visual Mockup Card & Panah Samping Foto (Kanan) */
     .project-preview-panel {
       flex: 1.25;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      position: relative;
+    }
+
+    .project-mockup-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
     }
 
     .project-mockup-card {
       width: 100%;
-      max-width: 600px;
       aspect-ratio: 16 / 10;
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
       border: 1px solid #e7e3da;
       background-color: #e5e3dc;
+      cursor: pointer;
     }
 
     .project-mockup-card img {
@@ -136,58 +144,112 @@
       transform: scale(1.02);
     }
 
-    /* Tombol Panah Slider */
-    .slider-nav-row {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-top: 48px;
-    }
-
-    .slider-arrows {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .arrow-btn {
-      width: 44px;
-      height: 44px;
+    /* Tombol Panah Melayang di Samping Foto */
+    .float-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      border: 1px solid #dcd8cf;
-      background: #ffffff;
-      color: #111111;
-      font-size: 18px;
-      display: inline-flex;
+      background: rgba(1, 1, 1, 0.95);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      color: #f1f1f1;
+      font-size: 24px;
+      display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: background-color 0.2s, border-color 0.2s, transform 0.2s, color 0.2s;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+      z-index: 5;
+      transition: background-color 0.2s, transform 0.2s, color 0.2s;
     }
 
-    .arrow-btn:hover {
+    .float-nav-btn:hover {
+      background: #fdfdfd;
+      color: #000000;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .float-prev { left: -23px; }
+    .float-next { right: -23px; }
+
+    /* PAGINASI TENGAH: PANAH SIMPLE TANPA CIRCLE + TOMBOL CIRCLE 1-7 */
+    .pagination-bar-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 48px;
+      margin-bottom: 24px;
+      width: 100%;
+      gap: 12px;
+    }
+
+    /* Panah Simple Tipis Tanpa Circle */
+    .text-arrow-btn {
+      background: none;
+      border: none;
+      color: #444444;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-arrow-btn:hover {
+      color: #111111;
+      transform: scale(1.2);
+    }
+
+    .text-arrow-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Container Tombol Angka */
+    .page-numbers-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .page-num-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid #dcd8cf;
+      background: #ffffff;
+      color: #444444;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .page-num-btn:hover {
+      border-color: #111111;
+      color: #111111;
+      transform: translateY(-2px);
+    }
+
+    .page-num-btn.active {
       background: #111111;
       color: #ffffff;
       border-color: #111111;
-      transform: scale(1.05);
-    }
-
-    .slider-counter {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 13px;
-      letter-spacing: 0.1em;
-      color: #888888;
-      margin-left: 6px;
-    }
-
-    .slider-counter span {
-      color: #111111;
-      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
     }
 
     /* ================================================= */
-    /* MODAL DETAIL ALA UPWORK                           */
+    /* MODAL DETAIL                                      */
     /* ================================================= */
     .upwork-modal-backdrop {
       position: fixed;
@@ -255,8 +317,8 @@
 
     .modal-close-trigger {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: 10px;
+      right: 14px;
       background: none;
       border: none;
       font-size: 26px;
@@ -318,33 +380,46 @@
       font-weight: 700;
     }
 
-    /* Penyesuaian Responsif */
+    /* Penyesuaian Responsif Layar Kecil */
     @media (max-width: 900px) {
       .design-page-wrapper {
-        padding: 0 24px;
+        padding: 0 20px;
       }
       .stage-content-row {
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: column-reverse;
         gap: 32px;
       }
       .project-info-panel {
         max-width: 100%;
         text-align: center;
       }
-      .slider-nav-row {
-        justify-content: center;
-        margin-top: 28px;
+      .float-prev { left: 8px; }
+      .float-next { right: 8px; }
+      .pagination-bar-wrapper {
+        margin-top: 36px;
+        gap: 8px;
+      }
+      .page-num-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+      }
+      .page-numbers-container {
+        gap: 6px;
+      }
+      .text-arrow-btn {
+        padding: 4px 8px;
+        font-size: 18px;
       }
       .upwork-modal-card {
         grid-template-columns: 1fr;
         max-height: 90vh;
       }
       .modal-gallery-side {
-        padding: 24px;
+        padding: 20px;
       }
       .modal-info-side {
-        padding: 28px 24px;
+        padding: 24px 20px;
       }
     }
   </style>
@@ -352,7 +427,7 @@
 <body>
 
   <div class="design-page-wrapper">
-    <!-- Header Standar Portfolio dengan Tombol MENU -->
+    <!-- Header Standar Portfolio -->
     <header class="portfolio-header showcase-header">
       <div class="header-left">
         <button class="nav-btn" onclick="openMenu()">
@@ -373,7 +448,8 @@
     <!-- Showcase Tengah -->
     <main class="showcase-stage">
       <div class="stage-content-row">
-        <!-- Panel Kiri: Informasi Judul & CTA -->
+        
+        <!-- Panel Kiri: Informasi Judul & Tombol Detail -->
         <div class="project-info-panel">
           <div class="project-category" id="slideCategory">Logo Design & Branding</div>
           <h1 class="project-hero-title" id="slideTitle">Sync Logo Design & Branding</h1>
@@ -383,33 +459,35 @@
           </button>
         </div>
 
-        <!-- Panel Kanan: Gambar Mockup -->
+        <!-- Panel Kanan: Gambar Mockup dengan Panah Melayang di Samping Foto -->
         <div class="project-preview-panel">
-          <div class="project-mockup-card">
-            <img id="slideImg" src="" alt="Project Mockup Preview">
+          <div class="project-mockup-wrapper" id="swipeArea">
+            <button class="float-nav-btn float-prev" onclick="prevSlide()" aria-label="Previous Project">‹</button>
+            <button class="float-nav-btn float-next" onclick="nextSlide()" aria-label="Next Project">›</button>
+
+            <div class="project-mockup-card" onclick="openDesignModal()">
+              <img id="slideImg" src="" alt="Project Mockup Preview">
+            </div>
           </div>
         </div>
+
       </div>
 
-      <!-- Tombol Panah Slider -->
-      <div class="slider-nav-row">
-        <div class="slider-arrows">
-          <button class="arrow-btn" onclick="prevSlide()" aria-label="Previous Project">‹</button>
-          <button class="arrow-btn" onclick="nextSlide()" aria-label="Next Project">›</button>
-        </div>
-        <div class="slider-counter">
-          <span id="currentIdx">01</span> / <span id="totalIdx">07</span>
-        </div>
+      <!-- Tombol Paginasi: ‹ 1 2 3 4 5 6 7 › (Panah Simple Tanpa Circle) -->
+      <div class="pagination-bar-wrapper">
+        <button class="text-arrow-btn" onclick="prevSlide()" aria-label="Previous Project">‹</button>
+        <div class="page-numbers-container" id="pageNumbers"></div>
+        <button class="text-arrow-btn" onclick="nextSlide()" aria-label="Next Project">›</button>
       </div>
     </main>
 
-    <!-- Footer Lengkap Sesuai Halaman films.html -->
+    <!-- Footer Lengkap Bersama Garis Tipis -->
     <footer class="portfolio-footer">
       <div class="footer-top">
         <div class="footer-col">
           <div class="footer-bio-title">ANDI ALFABIANO DAVALAH</div>
           <p class="footer-bio-desc">
-            Filmmaker, Content Creator, skilled in Content Writing, Visual Design, Marketing, and Research. Proficient in using various digital tools and platforms to develop, manage, and analyze content strategies. Open for directorial collaborations, and any production projects.
+            Filmmaker, Content Creator, skilled in Creative Production, Content Writing, Marketing, and Research. Proficient in using various digital tools and platforms to develop, manage, and analyze content strategies. Open for directorial collaborations, and any production projects.
           </p>
         </div>
 
@@ -520,7 +598,6 @@
   </div>
 
   <script>
-    // Data Project Design & Branding
     const designProjects = [
       {
         id: 1,
@@ -637,6 +714,23 @@
 
     let currentSlide = 0;
 
+    // Render Tombol Angka Paginasi (1–7)
+    function setupPageNumbers() {
+      const container = document.getElementById('pageNumbers');
+      container.innerHTML = designProjects.map((_, i) => `
+        <button class="page-num-btn ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})" aria-label="Project ${i + 1}">
+          ${i + 1}
+        </button>
+      `).join('');
+    }
+
+    function updatePageNumbers(index) {
+      const buttons = document.querySelectorAll('.page-num-btn');
+      buttons.forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+    }
+
     function renderSlide(index) {
       const project = designProjects[index];
       
@@ -644,8 +738,12 @@
       document.getElementById('slideTitle').textContent = project.title;
       document.getElementById('slideImg').src = project.mainImage;
       
-      document.getElementById('currentIdx').textContent = String(index + 1).padStart(2, '0');
-      document.getElementById('totalIdx').textContent = String(designProjects.length).padStart(2, '0');
+      updatePageNumbers(index);
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      renderSlide(currentSlide);
     }
 
     function nextSlide() {
@@ -706,7 +804,7 @@
       document.body.style.overflow = '';
     }
 
-    // Navigasi Keyboard (Panah & Escape)
+    // Navigasi Keyboard
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') nextSlide();
       if (e.key === 'ArrowLeft') prevSlide();
@@ -716,7 +814,31 @@
       }
     });
 
+    // Touch Swipe Gesture Khusus Mobile
+    const swipeArea = document.getElementById('swipeArea');
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    swipeArea.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    swipeArea.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    }, { passive: true });
+
+    function handleGesture() {
+      const threshold = 40;
+      if (touchEndX < touchStartX - threshold) {
+        nextSlide();
+      } else if (touchEndX > touchStartX + threshold) {
+        prevSlide();
+      }
+    }
+
     // Inisialisasi awal
+    setupPageNumbers();
     renderSlide(currentSlide);
   </script>
 </body>
