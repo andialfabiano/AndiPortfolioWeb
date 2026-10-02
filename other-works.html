@@ -68,7 +68,7 @@
       justify-content: space-between;
       background-color: #ffffff;
       border: 1px solid #e7e3da;
-      padding: 20px 24px;
+      padding: 14px 20px;
       border-radius: 6px;
       text-decoration: none;
       color: #111111;
@@ -92,28 +92,41 @@
     .doc-left-info {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
+      min-width: 0;
     }
 
-    .doc-num {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 12px;
-      font-weight: 600;
-      color: #999999;
-      width: 24px;
+    /* Thumbnail Foto Dokumen Kecil */
+    .doc-thumb {
+      width: 54px;
+      height: 54px;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid #e7e3da;
+      background-color: #f0ede6;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .doc-btn-item:hover .doc-thumb {
+      transform: scale(1.04);
     }
 
     .doc-name {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: -0.01em;
       color: #111111;
+      line-height: 1.35;
     }
 
     .doc-right-info {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
+      flex-shrink: 0;
+      margin-left: 16px;
     }
 
     .doc-badge {
@@ -123,8 +136,9 @@
       letter-spacing: 0.06em;
       color: #767676;
       background: #f1ede4;
-      padding: 4px 10px;
+      padding: 5px 10px;
       border-radius: 4px;
+      white-space: nowrap;
     }
 
     .doc-arrow {
@@ -157,14 +171,23 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
-        padding: 16px 18px;
+        padding: 14px 16px;
+      }
+      .doc-left-info {
+        width: 100%;
+        gap: 14px;
+      }
+      .doc-thumb {
+        width: 48px;
+        height: 48px;
       }
       .doc-right-info {
         width: 100%;
+        margin-left: 0;
         justify-content: space-between;
       }
       .doc-name {
-        font-size: 15px;
+        font-size: 14.5px;
       }
       .docs-footer {
         flex-direction: column;
@@ -205,10 +228,10 @@
     <!-- List Tombol Dokumen -->
     <main class="docs-list-container">
       
-      <!-- Tombol 1 -->
+      <!-- Tombol 1: LAindiemovie Production Certificate -->
       <a href="https://drive.google.com/file/d/1i0SB8YUEjIgnbiUX6BzV2bdCp1w4LWoh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
+          <img src="https://lh3.googleusercontent.com/d/1i0SB8YUEjIgnbiUX6BzV2bdCp1w4LWoh" alt="Certificate Preview" class="doc-thumb" loading="lazy">
           <span class="doc-name">LAindiemovie Production Certificate</span>
         </div>
         <div class="doc-right-info">
@@ -217,11 +240,24 @@
         </div>
       </a>
 
-      <!-- Tombol 2 -->
+      <!-- Tombol 1: Script Terryfying Story -->
+      <a href="https://drive.google.com/file/d/1PAz5Wf48Sej-wmD2j_kd-mDN4Xv3T5gI/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
+        <div class="doc-left-info">
+          <img src="https://lh3.googleusercontent.com/d/1PAz5Wf48Sej-wmD2j_kd-mDN4Xv3T5gI" alt="Certificate Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">The Terrifying Story of a Electrician Screenplay</span>
+        </div>
+        <div class="doc-right-info">
+          <span class="doc-badge">Script / 2026</span>
+          <span class="doc-arrow">↗</span>
+        </div>
+      </a>
+
+
+      <!-- Tombol 2: Short Film Proposal Deck -->
       <a href="https://drive.google.com/file/d/1Bj9MGuftMdq4cF8lsH-9ATu0FHa9Jltm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
-        <span class="doc-name">Short Film Proposal Deck</span>
+          <img src="https://lh3.googleusercontent.com/d/1Bj9MGuftMdq4cF8lsH-9ATu0FHa9Jltm" alt="Proposal Deck Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">Short Film Proposal Deck</span>
         </div>
         <div class="doc-right-info">
           <span class="doc-badge">Proposal / 2026</span>
@@ -229,11 +265,11 @@
         </div>
       </a>
 
-      <!-- Tombol 3 -->
+      <!-- Tombol 3: Safe Care UGC Video -->
       <a href="https://drive.google.com/file/d/1DDEDv8gpG-J9OokumJE211-S70w5dQ_l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
-        <span class="doc-name">Safe Care UGC Video</span>
+          <img src="https://lh3.googleusercontent.com/d/1DDEDv8gpG-J9OokumJE211-S70w5dQ_l" alt="Safe Care UGC Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">Safe Care UGC Video</span>
         </div>
         <div class="doc-right-info">
           <span class="doc-badge">UGC Reels / 2026</span>
@@ -241,11 +277,11 @@
         </div>
       </a>
 
-      <!-- Tombol 4 -->
+      <!-- Tombol 4: UGC Content Research & Strategy -->
       <a href="https://drive.google.com/file/d/1Xb36VXNxr9Mb7S17IWzQufXVi0RPoA0P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
-        <span class="doc-name">UGC Content Research & Strategy</span>
+          <img src="https://lh3.googleusercontent.com/d/1Xb36VXNxr9Mb7S17IWzQufXVi0RPoA0P" alt="UGC Research Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">UGC Content Research & Strategy</span>
         </div>
         <div class="doc-right-info">
           <span class="doc-badge">Research Doc / 2026</span>
@@ -253,11 +289,11 @@
         </div>
       </a>
 
-      <!-- Tombol 5 -->
+      <!-- Tombol 5: Moov.id Padel Marketing Reels -->
       <a href="https://www.instagram.com/reel/DOlWcc6j-jA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
-        <span class="doc-name">Moov.id Padel Marketing Reels</span>
+          <img src="https://lh3.googleusercontent.com/d/1yFiwHLbnGUjJQMX0yAdRDo7Ga7br7Zsc" alt="Moov.id Padel Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">Moov.id Padel Marketing Reels</span>
         </div>
         <div class="doc-right-info">
           <span class="doc-badge">Reels Content / 2025</span>
@@ -265,11 +301,11 @@
         </div>
       </a>
 
-      <!-- Tombol 6 -->
+      <!-- Tombol 6: TRANS 7 TV Program Pitch Decks -->
       <a href="https://drive.google.com/file/d/1DZwsVOjM8OBmXM73n0H_0uhvDQmAH18P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
-        <span class="doc-name">TRANS 7 TV Program Pitch Decks</span>
+          <img src="https://lh3.googleusercontent.com/d/1DZwsVOjM8OBmXM73n0H_0uhvDQmAH18P" alt="TRANS 7 Deck Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">TRANS 7 TV Program Pitch Decks</span>
         </div>
         <div class="doc-right-info">
           <span class="doc-badge">TV Pitch Deck / 2024</span>
@@ -277,11 +313,11 @@
         </div>
       </a>
 
-      <!-- Tombol 7 -->
+      <!-- Tombol 7: Lapor Pak Built-In Script Writing -->
       <a href="https://drive.google.com/file/d/104yNz1N4ce8m02Gc4cMeCPlhCztXP5Er/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
-        <span class="doc-name">Lapor Pak Built-In Script Writing</span>
+          <img src="https://lh3.googleusercontent.com/d/104yNz1N4ce8m02Gc4cMeCPlhCztXP5Er" alt="Lapor Pak Script Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">Lapor Pak Built-In Script Writing</span>
         </div>
         <div class="doc-right-info">
           <span class="doc-badge">Internship / 2024</span>
@@ -289,11 +325,11 @@
         </div>
       </a>
 
-      <!-- Tombol 8 -->
+      <!-- Tombol 8: Content Calendar & Distribution Plan -->
       <a href="https://docs.google.com/spreadsheets/d/1t9R_JRkOkiOKX5W1Q5h-cQa6wGC04Tn8/edit?usp=sharing&ouid=108978754058608842218&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="doc-btn-item">
         <div class="doc-left-info">
-        <!--  <span class="doc-num">01</span> -->
-        <span class="doc-name">Content Calendar & Distribution Plan</span>
+          <img src="https://lh3.googleusercontent.com/d/12crcn7aSmAFOBtHjDW4CihrPS6pcXJl4" alt="Content Calendar Preview" class="doc-thumb" loading="lazy">
+          <span class="doc-name">Content Calendar & Distribution Plan</span>
         </div>
         <div class="doc-right-info">
           <span class="doc-badge">Marketing Plan / 2022</span>
@@ -347,7 +383,7 @@
             </a>
           </li>
           <li class="drawer-nav-item">
-            <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
+            <a href="contact.html" class="drawer-nav-link" style="text-decoration: none !important; color: #111111 !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 8px;">
               Contact <span class="nav-arrow" style="color: #111111; font-weight: 400; font-size: 18px;">→</span>
             </a>
           </li>
