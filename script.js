@@ -36,7 +36,7 @@ const projects = [
   {
     id: 4,
     year: 'Reels Content - 2026',
-    title: 'The Terrified Story of an Electrician',
+    title: 'The Terrifying Story of an Electrician',
     image: 'https://lh3.googleusercontent.com/d/1_Upd7JU5H1INiYc0gYTmJkUOF-1c6H2H',
     videoLink: 'https://drive.google.com/file/d/1t1YkVg4PrDJ7WGtxNDkCEhmfYSKAgG7W/view',
     written: 'Andi Davalah',
