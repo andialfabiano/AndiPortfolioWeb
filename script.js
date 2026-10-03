@@ -36,7 +36,7 @@ const projects = [
   {
     id: 4,
     year: 'Reels Content - 2026',
-    title: 'The Terrifying Story of an Electrician',
+    title: 'The Terrified Story of an Electrician',
     image: 'https://lh3.googleusercontent.com/d/1_Upd7JU5H1INiYc0gYTmJkUOF-1c6H2H',
     videoLink: 'https://drive.google.com/file/d/1t1YkVg4PrDJ7WGtxNDkCEhmfYSKAgG7W/view',
     written: 'Andi Davalah',
@@ -98,6 +98,28 @@ const projects = [
     genre: 'Sketch-Comedy',
     duration: '4 Minutes',
     synopsis: 'Sketch video for event teaser, about a man tasked with getting people to attend an event, but his bad reputation makes the job difficult.'
+  },
+  {
+    id: 10,
+    year: 'Interview Documentary - 2022',
+    title: 'Pipinos Bakery Interview',
+    image: 'https://lh3.googleusercontent.com/d/1R6rY0Z_hPLb3IN8dRiYl_L4ivxzJRr8W',
+    videoLink: 'https://drive.google.com/file/d/1Hf9TkOVHFyqJ9KxAB1_gD1ue7utAFsT5/view?usp=sharing',
+    written: 'Andi Davalah',
+    genre: 'Podcast, Interview, Documentary',
+    duration: '11 Minutes',
+    synopsis: 'A cinematic mini-documentary exploring the origins, baking discipline, and artisanal identity of Bandung-based Pipinos Bakery.'
+  },
+  {
+    id: 11,
+    year: 'Interview - 2022',
+    title: 'After Movie Bising',
+    image: 'https://lh3.googleusercontent.com/d/1cL0soTS_l7DECXSc3J4pi4kqSiU6_9IN',
+    videoLink: 'https://drive.google.com/file/d/1WxOErXAj8UmfCB68INtGLuayAvUINaMW/view?usp=sharing',
+    written: 'Andi Davalah',
+    genre: 'Interview, After Movie',
+    duration: '12 Minutes',
+    synopsis: "A dynamic recap video, celebrating a university's business simulation orientation program. Centered around firsthand student interviews."
   },
 ];
 
