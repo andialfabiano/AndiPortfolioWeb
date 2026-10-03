@@ -9,7 +9,7 @@ const projects = [
     written: 'Andi Davalah',
     genre: 'Socio-Critic, Comedy',
     duration: '11 Minutes',
-    synopsis: 'Stuck in the middle of nowhere with barely any signal, Uki must survive an online job interview with an annoying HR recruiter.'
+    synopsis: 'Stuck in the middle of nowhere with barely any signal, Uki must survive an online job interview plagued by hilarious miscommunications'
   },
   {
     id: 2,
