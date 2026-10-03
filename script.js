@@ -95,12 +95,23 @@ const projects = [
     image: 'https://lh3.googleusercontent.com/d/1iALV9Y04Y04bseLeQ6TzkHn3HxQsobpX',
     videoLink: 'https://drive.google.com/file/d/15tyG5TSNkIz3JxNJnzDLv7iXxHtgv1iO/view?usp=sharing',
     written: 'Andi Davalah',
-    genre: 'Sketch-Comedy',
+    genre: 'Sketch-Comedy, Mockumentary',
     duration: '4 Minutes',
     synopsis: 'Sketch video for event teaser, about a man tasked with getting people to attend an event, but his bad reputation makes the job difficult.'
   },
   {
-    id: 10,
+    id: 10,    
+    year: 'Talking Head Video - 2023',
+    title: 'Talking Head Suara Mahasiswa',
+    image: 'https://lh3.googleusercontent.com/d/1_IDBacpdNzAlDTF1pcXkWe0aNsCzvXbs',
+    videoLink: 'https://drive.google.com/file/d/1jGui0tby2NwFsITSdZTvXiDi1r0EzFtd/view?usp=sharing',
+    written: 'Andi Davalah',
+    genre: 'Talking Head, Tutorial',
+    duration: '6 Minutes',
+    synopsis: 'talking-head tutorial video introducing "Suara Mahasiswa," a digital platform designed to gather and channel student feedback and aspirations across the university community.'
+  },
+  {
+    id: 11,
     year: 'Interview Documentary - 2022',
     title: 'Pipinos Bakery Interview',
     image: 'https://lh3.googleusercontent.com/d/1R6rY0Z_hPLb3IN8dRiYl_L4ivxzJRr8W',
@@ -111,7 +122,7 @@ const projects = [
     synopsis: 'A cinematic mini-documentary exploring the origins, baking discipline, and artisanal identity of Bandung-based Pipinos Bakery.'
   },
   {
-    id: 11,
+    id: 12,
     year: 'Interview - 2022',
     title: 'After Movie Bising',
     image: 'https://lh3.googleusercontent.com/d/1cL0soTS_l7DECXSc3J4pi4kqSiU6_9IN',
