@@ -148,124 +148,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* ================================================= */
-    /* ELEMEN PENGHIAS KIRI & KANAN                      */
-    /* ================================================= */
-    .bg-decorations {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none !important; /* KUNCI: Menolak klik agar tembus ke menu */
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .bg-decorations * {
-      pointer-events: none !important; /* Menjamin semua anak elemen tidak menangkap sentuhan */
-    }
-
-    /* Sisi Kiri */
-    .decor-left {
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .decor-circle-lg {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 1px dashed rgba(0, 0, 0, 0.12);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .decor-circle-lg::after {
-      content: "";
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
-    }
-
-    .decor-label {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #a09d94;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-    }
-
-    /* Sisi Kanan */
-    .decor-right {
-      position: absolute;
-      top: 50%;
-      right: 5%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .decor-circle-dual {
-      position: relative;
-      width: 110px;
-      height: 110px;
-    }
-
-    .dual-outer {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
-    }
-
-    .dual-inner {
-      position: absolute;
-      top: 25px;
-      left: 25px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 1px dashed rgba(0, 0, 0, 0.14);
-    }
-
-    /* Viewfinder Corners */
-    .decor-corner-tl {
-      position: absolute;
-      top: 70px;
-      left: 70px;
-      width: 18px;
-      height: 18px;
-      border-top: 1.5px solid rgba(0, 0, 0, 0.15);
-      border-left: 1.5px solid rgba(0, 0, 0, 0.15);
-    }
-
-    .decor-corner-br {
-      position: absolute;
-      bottom: 70px;
-      right: 70px;
-      width: 18px;
-      height: 18px;
-      border-bottom: 1.5px solid rgba(0, 0, 0, 0.15);
-      border-right: 1.5px solid rgba(0, 0, 0, 0.15);
-    }
-
     @media (max-width: 900px) {
       .decor-left, .decor-right, .decor-corner-tl, .decor-corner-br {
         display: none;
@@ -273,7 +155,41 @@
       .landing-headline {
         white-space: normal;
       }
-    }
+      /* Hero Container di index.html */
+.hero-section {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  
+  /* Gambar Desktop default */
+  background-image: url('https://lh3.googleusercontent.com/d/1SnmRy7WVk8ZeL8sw1AQLLUnrm6ehwwwW');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Opsi: Lapisan penurun kontras agar teks tetap terbaca jelas */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(248, 247, 243, 0.35); /* Selaras dengan warna krem dasar #F8F7F3 */
+  z-index: 1;
+}
+
+/* Khusus Layar Handphone (Lebar layar <= 768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    /* Otomatis ganti ke versi vertikal */
+    background-image: url('foto-muka-mobile.webp');
+    background-position: center top; /* Fokuskan ke wajah bagian atas */
+  }
+}
+
+}
   </style>
 </head>
 <body>
